@@ -39,3 +39,8 @@ This script demonstrates essential Linux system administration tasks such as dir
 ## How to Run the Script
 1. Make sure the script has execute permissions:
     chmod +x myscript.sh
+
+## Outputs
+![output1](https://github.com/user-attachments/assets/74cb5e5c-7a60-4575-ace6-2ce7912cbb77)
+![output2](https://github.com/user-attachments/assets/26b7d310-490a-4cf6-a609-d032967879ec)
+![output3](https://github.com/user-attachments/assets/06a6da36-fb8c-4b81-bf79-eaeae9417ad7)
