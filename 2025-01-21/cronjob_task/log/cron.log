@@ -1,0 +1,77 @@
+-----------------------------------------------
+Top 5 Processes using the most system resources
+Date: Tue Jan 21 01:55:01 PM +0545 2025
+-----------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 649455  649453 ps -eo pid,ppid,cmd,%cpu,%m  200  0.0
+ 605676  605646 htop                         7.5  0.0
+   6100    2080 /usr/bin/midori              5.6  4.7
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  4.6 38.9
+   2080    2011 cinnamon --replace           4.1  2.4
+-----------------------------------------------
+-----------------------------------------------
+Top 5 Processes using the most system resources
+Date: Tue Jan 21 02:00:01 PM +0545 2025
+-----------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 652258  652254 ps -eo pid,ppid,cmd,%cpu,%m  300  0.0
+ 605676  605646 htop                         7.7  0.0
+   6100    2080 /usr/bin/midori              5.6  4.8
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  4.7 40.1
+   2080    2011 cinnamon --replace           4.1  2.3
+-----------------------------------------------
+-----------------------------------------------------
+Date: Tue Jan 21 02:05:01 PM +0545 2025
+Top 5 Processes using the most system resources
+-----------------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 605676  605646 htop                         7.9  0.0
+   6100    2080 /usr/bin/midori              5.6  4.9
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  4.8 41.5
+   2080    2011 cinnamon --replace           4.1  2.3
+ 362553  362383 /app/discord/Discord --type  3.4  3.7
+-----------------------------------------------------
+-----------------------------------------------------
+Date: Tue Jan 21 02:30:01 PM +0545 2025
+Top 5 Processes using the most system resources
+-----------------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 667076  667072 ps -eo pid,ppid,cmd,%cpu,%m  300  0.0
+ 667067  666930 /usr/sbin/CRON -f -P        25.0  0.0
+ 605676  605646 htop                         8.6  0.0
+   6100    2080 /usr/bin/midori              5.6  4.5
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  5.3 47.1
+-----------------------------------------------------
+-----------------------------------------------------
+Date: Tue Jan 21 02:35:01 PM +0545 2025
+Top 5 Processes using the most system resources
+-----------------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 669571  669569 ps -eo pid,ppid,cmd,%cpu,%m  200  0.0
+ 605676  605646 htop                         8.7  0.0
+   6100    2080 /usr/bin/midori              5.6  4.3
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  5.4 48.2
+   2080    2011 cinnamon --replace           4.2  2.0
+-----------------------------------------------------
+-----------------------------------------------------
+Date: Tue Jan 21 02:40:01 PM +0545 2025
+Top 5 Processes using the most system resources
+-----------------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 605676  605646 htop                         8.8  0.0
+   6100    2080 /usr/bin/midori              5.6  4.4
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  5.5 48.7
+   2080    2011 cinnamon --replace           4.2  1.6
+ 362553  362383 /app/discord/Discord --type  3.5  2.8
+-----------------------------------------------------
+-----------------------------------------------------
+Date: Tue Jan 21 02:45:01 PM +0545 2025
+Top 5 Processes using the most system resources
+-----------------------------------------------------
+    PID    PPID CMD                         %CPU %MEM
+ 605676  605646 htop                         9.0  0.0
+   6100    2080 /usr/bin/midori              5.6  4.5
+ 560076  560074 /usr/lib/x86_64-linux-gnu/w  5.6 49.4
+ 670913    6100 /opt/midori/midori -content  4.6  2.2
+   2080    2011 cinnamon --replace           4.2  1.6
+-----------------------------------------------------
