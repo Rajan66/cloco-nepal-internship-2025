@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML & CSS Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h2>CSS Demo Site</h2>
+            <ul>
+                <li id="Home">Home</li>
+                <li id="Gallery">Gallery</li>
+                <li id="Contact">Contact</li>
+            </ul>
+            <figure class="hamburger">
+                <button class="btn-hamburger">
+                    <img src="/home/rajan/Pictures/hamburger.png" alt="hamburger" />
+                </button>
+            </figure>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge">
+                Otsukare
+            </span>
+            <h2>What I covered</h2>
+            <p>This webpage showcases various CSS layout techniques including:</p>
+            <ul>
+                <li>Flexbox for navigation</li>
+                <li>CSS Grid for page layout</li>
+                <li>Absolute positioning for the badge</li>
+                <li>Sticky positioning for the sidebar</li>
+            </ul>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Card 1</h3>
+                    <p>Demonstrates grid-based card layout with auto-fit</p>
+                </div>
+
+                <div class="card">
+                    <h3>Card 2</h3>
+                    <p>Shows responsive design princples</p>
+                </div>
+
+                <div class="card">
+                    <h3>Card 3</h3>
+                    <p>Illustrates box-shadow and border-radius</p>
+                </div>
+            </div>
+            <div class="image-container">
+
+                <h2>Gallery</h2>
+                <figure class="gallery">
+                    <img src="/home/rajan/Pictures/cafe.png" class="image" alt="cafe picture" />
+                    <img src="/home/rajan/Pictures/akuma.jpg" class="image" alt="akuma" />
+                    <img src="/home/rajan/Pictures/akuma.jpg" class="image" alt="bing chilling" />
+                    <img src="/home/rajan/Pictures/akuma.jpg" class="image" alt="bing 1" />
+                    <img src="/home/rajan/Pictures/akuma.jpg" class="image" alt="image 2" />
+                    <img src="/home/rajan/Pictures/akuma.jpg" class="image" alt="akuma again" />
+                </figure>
+            </div>
+        </article>
+
+        <aside class="sticky-sidebar">
+            <h2>Sidebar</h2>
+            <p>This sidebar uses sticky positioning to stay visible while scrolling.
+                <p>Try scrolling the page to see how it works!</p>
+        </aside>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Copyright &copy; CSS Demo Site 2025</p>
+            <p>Built with semantic HTML and modern CSS</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
