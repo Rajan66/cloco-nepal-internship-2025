@@ -33,3 +33,6 @@ This project demonstrates the use of semantic HTML elements and modern CSS techn
 - The webpage will automatically adjust for different screen sizes, with a responsive navigation bar and gallery layout.
 
 ## Outputs
+![html1](https://github.com/user-attachments/assets/51e78c35-b2c9-4414-92e7-078d27d618cb)
+![html2](https://github.com/user-attachments/assets/c5f00182-eeb1-4959-aefb-cf0bec8f245a)
+![html3](https://github.com/user-attachments/assets/7ea994e1-953b-4a5a-b51d-ddb523b62a86)
