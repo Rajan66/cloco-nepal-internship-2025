@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #484c53;
+  color: white;
+  font-size: 1.2em;
+}
+
+#container {
+  padding: 20px;
+  background-color: #484c53;
+  height: 100%;
+}
+
+form {
+  margin: 0 auto;
+  width: 70%;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+}
+
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+  padding: 1.2rem;
+}
+
+fieldset {
+  border: 1px solid whitesmoke;
+  padding: 2rem;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+div + div {
+  margin-top: 1em;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+}
+
+input,
+textarea {
+  width: 200px;
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  border-color: OrangeRed;
+}
+
+textarea {
+  vertical-align: top;
+  height: 5em;
+  resize: vertical;
+}
+
+.button {
+  padding-left: 90px;
+}
+
+button {
+  margin: 0.5em;
+  font-size: 1em;
+  text-transform: capitalize;
+  background-color: rgb(197, 185, 80);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.error{
+    color: red;
+}
