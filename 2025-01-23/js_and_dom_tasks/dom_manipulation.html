@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>DOM Manipulation</title>
+</head>
+
+<body>
+    <label for="row">Row: </label>
+    <input type="text" name="row" id="row" />
+
+    <label for="column">Column: </label>
+    <input type="text" name="column" id="column" />
+
+    <input type="button" onclick=addRow() value="Add Row" />
+    <input type="button" onclick=deleteRow() value="Delete Row" />
+
+    <input type="button" onclick=generateTable() value="Generate Table Desu" />
+
+    <input type="button" onclick=sendAlert() value="Send Alert" />
+
+    <select name="theme" id="theme" onclick=applyTheme()>
+        <option value="default">Default</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+
+    <div id="table-container"></div>
+</body>
+<script>
+    // generates a html table using DOM manipulation in JS
+    function generateTable() {
+        // this clears the previuos table before creating a new one
+        let tableContainer = document.getElementById("table-container");
+        tableContainer.innerHTML = "";
+
+        // without `.value` we will get the element instead of the value
+        const rowNumber = document.getElementById("row").value;
+        const columnNumber = document.getElementById("column").value;
+
+        const table = document.createElement("table");
+
+        const tableHead = document.createElement("thead");
+        const tableBody = document.createElement("tbody");
+
+        const headRow = document.createElement("tr");
+
+        for (let i = 1; i <= columnNumber; i++) {
+            const headCell = document.createElement("th");
+            const headValue = document.createTextNode(`cell ${i}`);
+
+            headCell.appendChild(headValue);
+            headRow.appendChild(headCell);
+        }
+        tableHead.appendChild(headRow);
+
+        for (let i = 0; i < rowNumber; i++) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < columnNumber; j++) {
+                const cell = document.createElement("td");
+                const cellValue = document.createTextNode(`cell: ${i} ${j}`)
+
+                cell.appendChild(cellValue);
+                row.appendChild(cell);
+            }
+            tableBody.appendChild(row);
+        }
+
+        table.appendChild(tableHead);
+        table.appendChild(tableBody);
+
+        table.setAttribute("id", "table");
+        table.setAttribute("border", "2");
+
+        table.style.background = "turquoise";
+        table.style.borderColor = "purple";
+        table.style.borderSpacing = "5px";
+        table.style.margin = "15px";
+
+        // document.body.appendChild(table);
+        tableContainer.appendChild(table);
+    }
+
+    function sendAlert() {
+        alert("Hellooo")
+    }
+
+    // addRow and deleteRow just asks for prompts
+    function addRow() {
+        const table = document.getElementById("table");
+        const value = prompt("Enter a value: ");
+        console.log(value)
+    }
+
+    function deleteRow() {
+        const value = prompt("Are you sure about that?")
+        console.log(value);
+    }
+
+    function applyTheme() {
+        const option = document.getElementById("theme").value;
+        const table = document.getElementById("table");
+
+        if (option === "light") {
+            document.body.style.background = "white"
+            table.style.background = "gray";
+            document.body.style.color = "black"
+        } else if (option === "dark") {
+            document.body.style.background = "black"
+            document.body.style.color = "white"
+            table.style.background = "#00FF00";
+        } else {
+            document.body.style.background = "gray"
+        }
+    }
+</script>
+
+</html>
