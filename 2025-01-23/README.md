@@ -17,3 +17,7 @@ This project demonstrates the use of HTML, JavaScript, and DOM manipulation tech
     - Light: White background with gray table styling.
     - Dark: Black background with green table styling.
 - Changes the body and table colors dynamically.
+
+## Outputs
+![dom1](https://github.com/user-attachments/assets/c8fdfea8-ba76-4dc7-ade3-c50ae7cc094d)
+![dom2](https://github.com/user-attachments/assets/c9d49911-36c9-428e-929c-3818f77a79d9)
