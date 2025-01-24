@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Can i date your daughter?</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="validator.js"></script>
+</head>
+<body>
+
+    <main id="container">
+        <form id="survey-form">
+            <h1 id="title">Application for permission to date my daughter</h1>
+            <p id="note"><b>Note:</b> Form is to be completed at least 21 days prior to date</p>
+
+            <fieldset>
+                <legend>Personal Details</legend>
+
+                <div>
+                    <label id="name-label" for="name">Name*:</label>
+                    <input type="text" required id="name" name="user_name" placeholder="Enter name here"
+                        onchange="validateName()" />
+                    <span id="nameError" class="error"></span><br>
+                </div>
+                <div>
+                    <label for="address-label">Address:</label>
+                    <input type="Address" id="address" name="Address" placeholder="Enter address here"
+                        onchange=validateAddress() />
+                    <span id="addressError" class="error"></span><br>
+                </div>
+                <div>
+                    <label id="email-label" for="Email">Email:</label>
+                    <input type="email" required id="email" name="user_email" placeholder="Enter email here"
+                        onchange=validateEmail() />
+                    <span id="emailError" class="error"></span><br>
+                </div>
+                <div>
+                    <label id="number-label" for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter 10 digit number" min="1"
+                        onchange="validatePhone()" />
+                    <span id="phoneError" class="error"></span><br>
+                </div>
+                <div>
+                    <label id="iq-label" for="iq">IQ:</label>
+                    <input type="number" id="iq" name="iq" placeholder="Enter IQ here" onchange="validateIQ()" />
+                    <span id="iqError" class="error"></span><br>
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <label for="Gender">Check All That Apply</label>
+                <p>
+                    <input type="checkbox" name="tattoo" value="tattoo" class="checkbox"> I have tattoos and/or
+                    piercings<br>
+                    <input type="checkbox" name="age" value="Car" class="checkbox"> I am more than 2 years older than my
+                    daughter<br>
+                    <input type="checkbox" name="car" value="car" class="checkbox"> I own a cycle<br>
+                    <input type="checkbox" name="work" value="work" class="checkbox" checked> I work full-time<br>
+                    <input type="checkbox" name="rich" value="rich" class="checkbox" checked> My parents are rich but I
+                    am poor<br>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <div>
+                    <label for="politics">Education Level Completed:</label>
+                    <select id="dropdown2">
+                        <option value="University">University</option>
+                        <option value="College">College</option>
+                        <option value="Secondary">High School</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Essay Section</legend>
+                <div>
+                    <label for="essay"></label>
+                    <p> In 50 words or more explain why you want to date my daughter</p>
+                    <textarea id="essay" name="user_message" rows="4" cols="50" placeholder="Enter Text Here"
+                        onchange="validateEssay()"></textarea>
+                    <span id="essayError" class="error"></span>
+                </div>
+            </fieldset>
+            <div id="submit-button">
+                <button type="submit" id="submitButton">Send your application</button>
+            </div>
+        </form>
+</body>
+</html>
