@@ -56,6 +56,9 @@ textarea {
   width: 200px;
   border: 1px solid #999;
 }
+.checkbox{
+    width: 20px !important;
+}
 
 input:focus,
 textarea:focus {
