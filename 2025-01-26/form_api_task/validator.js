@@ -22,13 +22,13 @@ form.addEventListener("submit", function (e) {
 
 const submitForm = (formData) => {
   const api = "http://localhost:5000/api";
-  let object = {};
-  formData.forEach((value, key) => (object[key] = value));
+  let object = Object.fromEntries(formData);
 
   object.user = object.email;
   const payload = JSON.stringify(object);
 
   console.log(payload);
+
   fetch(`${api}/application`, {
     method: "POST",
     headers: {
@@ -44,15 +44,9 @@ const submitForm = (formData) => {
       return response.json();
     })
     .then((data) => {
-      alert("Form submitted successfully!");
-      const container = document.createElement("div");
-
-      const displayData = JSON.stringify(data.application);
-      const displayNode = document.createTextNode(displayData);
-
-      container.appendChild(displayNode);
-      document.body.appendChild(container);
+      displayData(data);
       alert(data.message);
+      form.reset();
     })
     .catch((err) => {
       console.error("Error while submitting the form:", err.message);
@@ -156,4 +150,16 @@ const validateEssay = () => {
     document.getElementById("essayError").innerHTML = "";
     error = false;
   }
+};
+
+const displayData = (data) => {
+  const container = document.getElementById("response-container");
+  container.style.display = "flex";
+  const application = data.application;
+  document.getElementById("data-name").innerHTML = application.name;
+  document.getElementById("data-address").innerHTML = application.address;
+  document.getElementById("data-email").innerHTML = application.email;
+  document.getElementById("data-phone").innerHTML = application.phone;
+  document.getElementById("data-iq").innerHTML = application.iq;
+  document.getElementById("data-essay").innerHTML = application.essay;
 };

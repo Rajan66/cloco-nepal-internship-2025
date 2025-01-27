@@ -56,8 +56,8 @@ textarea {
   width: 200px;
   border: 1px solid #999;
 }
-.checkbox{
-    width: 20px !important;
+.checkbox {
+  width: 20px !important;
 }
 
 input:focus,
@@ -91,6 +91,29 @@ button {
   justify-content: center;
 }
 
-.error{
-    color: red;
+.error {
+  color: red;
+}
+
+.response-container {
+  margin: 20px auto;
+  border-radius: 10px;
+  display: none;
+  width: 70%;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 10px;
+}
+
+.response-header {
+  align-self: center;
+  margin: 10px auto;
+}
+
+.data-container {
+  display: flex;
+}
+.data-essay {
+  overflow-wrap: break-word;
+  width: 350px;
 }
