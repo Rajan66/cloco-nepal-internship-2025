@@ -1,74 +1,64 @@
-const api = "http://localhost:5000/api";
-const getAllApplications = () => {
-  fetch(`${api}/application`, {
-    method: "GET",
-  })
-    .then(async (response) => {
-      if (!response.ok) {
-        const errorMsg = await response.json();
-        throw new Error(`${errorMsg.message}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      const applications = data.applications;
+const api = "http://localhost:5000/api/application";
+const getAllApplications = async () => {
+  try {
+    const response = await fetch(`${api}`, { method: "GET" });
+    if (!response.ok) {
+      const errorMsg = await response.json();
+      throw new Error(`${errorMsg.message}`);
+    }
 
-      const totalEssayWords = applications.reduce((totalWords, application) => {
-        totalWords += application.essay.length;
-        return totalWords;
-      });
-      console.log(totalEssayWords);
+    const data = await response.json();
+    const applications = data.applications;
 
-      data.applications.forEach((application) => {
-        const tableName = document.createElement("td");
-        const tableAddress = document.createElement("td");
-        const tableEmail = document.createElement("td");
-        const tablePhone = document.createElement("td");
-        const tableIq = document.createElement("td");
-        const btnView = document.createElement("button");
-        const btnEdit = document.createElement("button");
-        const btnDelete = document.createElement("button");
+    applications.forEach((application) => {
+      const tableRow = document.createElement("tr");
 
-        tableName.textContent = application.name;
-        tableAddress.textContent = application.address;
-        tableEmail.textContent = application.email;
-        tablePhone.textContent = application.phone;
-        tableIq.textContent = application.iq;
+      tableRow.innerHTML = `
+      <td>${application.name}</td>
+      <td>${application.address}</td>
+      <td>${application.email}</td>
+      <td>${application.phone}</td>
+      <td>${application.iq}</td>
+      <td>${application.essay.length}</td>
+      <td><button class="btn-view">View</button></td>
+      <td><button class="btn-edit">Edit</button></td>
+      <td><button class="btn-delete">Delete</button></td>
+      `;
 
-        btnView.textContent = "View";
-        btnEdit.textContent = "Edit";
-        btnDelete.textContent = "Delete";
+      const btnView = tableRow.querySelector(".btn-view");
+      const btnEdit = tableRow.querySelector(".btn-edit");
+      const btnDelete = tableRow.querySelector(".btn-delete");
 
-        btnView.setAttribute("id", "btnView");
-        btnEdit.setAttribute("id", "btnEdit");
-        btnView.setAttribute("id", "btnDelete");
-
-        let tableRow = document.createElement("tr");
-        tableRow.appendChild(tableName);
-        tableRow.appendChild(tableAddress);
-        tableRow.appendChild(tableEmail);
-        tableRow.appendChild(tablePhone);
-        tableRow.appendChild(tableIq);
-        tableRow.appendChild(btnView);
-        tableRow.appendChild(btnEdit);
-        tableRow.appendChild(btnDelete);
-
-        const table = document.querySelector(".application-table");
-        table.appendChild(tableRow);
-      });
-    })
-    .catch((err) => console.log(err.message));
+      btnView.addEventListener("click", () => showDetails(application));
+      btnEdit.addEventListener("click", () => editDetails(application));
+      btnDelete.addEventListener("click", () => deleteApplication(application));
+      document.querySelector(".application-table").appendChild(tableRow);
+      console.log(tableRow);
+    });
+  } catch (err) {
+    console.log(err.message);
+    alert("Failed to fetch the applications: ", err.message);
+  }
 };
 
-const deleteApplicatoin = () => {
-  fetch(`${url}/application/:id`, {
-    method: "DELETE",
-    body: user.email,
-  }).then((response) => {
+const deleteApplication = async (application) => {
+  try {
+    const response = await fetch(`${api}/${application.id}`, {
+      method: "DELETE",
+      headers:{
+        "user-email": application.email
+      }
+    });
+
     if (!response.ok) {
-      alert("asdlkasd");
+      const errorMsg = await response.json();
+      throw new Error(`${errorMsg.message}`);
     }
-  });
+
+    alert("Applicatoin deleted successfully");
+  } catch (error) {
+    console.log(error.message);
+    alert("Failed to delete the application: ", error.message);
+  }
 };
 getAllApplications();
