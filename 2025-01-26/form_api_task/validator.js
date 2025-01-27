@@ -45,7 +45,13 @@ const submitForm = (formData) => {
     })
     .then((data) => {
       displayData(data);
-      alert(data.message);
+      var x = document.getElementById("snackbar");
+
+      x.className = "show";
+      x.innerHTML = data.message;
+      setTimeout(function () {
+        x.className = x.className.replace("show","");
+      }, 3000);
       form.reset();
     })
     .catch((err) => {
