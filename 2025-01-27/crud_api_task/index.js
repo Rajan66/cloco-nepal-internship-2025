@@ -1,4 +1,5 @@
 const api = "http://localhost:5000/api/application";
+
 const getAllApplications = async () => {
   try {
     const response = await fetch(`${api}`, { method: "GET" });
@@ -45,9 +46,9 @@ const deleteApplication = async (application) => {
   try {
     const response = await fetch(`${api}/${application.id}`, {
       method: "DELETE",
-      headers:{
-        "user-email": application.email
-      }
+      headers: {
+        "user-email": application.email,
+      },
     });
 
     if (!response.ok) {
@@ -55,10 +56,12 @@ const deleteApplication = async (application) => {
       throw new Error(`${errorMsg.message}`);
     }
 
-    alert("Applicatoin deleted successfully");
+    alert("Application deleted successfully");
+    location.reload()
   } catch (error) {
     console.log(error.message);
     alert("Failed to delete the application: ", error.message);
   }
 };
+
 getAllApplications();

@@ -1,15 +1,121 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <header>
+        <nav>
+            <a href="./home.html" id="view-home">Home</a>
+            <a href="./all_applications.html" id="view-home">Applications</a>
+        </nav>
+    </header>
     <main>
         <h2>Welcome to Home Page</h2>
         <article>
-            <h3>This is application 1</h3>
+            <h3>User's List</h3>
+            <ul id="user-list"></ul>
         </article>
-    </main> 
+        <div style="display: none;" id="detail-section">
+            <h3 id="user-name"></h3>
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>Essay Count</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                    </tr>
+                </thead>
+                <tbody id="user-body">
+
+                </tbody>
+            </table>
+            <span id="total-count"></span>
+        </div>
+        <button id="back-button" style="display: none;">Go back</button>
+    </main>
 </body>
+
 </html>
+
+<script>
+    let api = "http://localhost:5000/api/application"
+    const usersListEl = document.getElementById("user-list");
+    let applications;
+    let uniqueUsers = new Set();
+    const getApplications = async () => {
+        try {
+            const response = await fetch(`${api}`);
+            if (!response.ok) {
+                const errMsg = await response.json();
+                throw new Error(errMsg.message);
+            }
+            const data = await response.json();
+            // alert(data.message); can be replaced with snackbar
+            applications = data.applications;
+
+            uniqueUsers = new Set(applications.map((application) => application.name));
+
+            uniqueUsers.forEach((name) => showUsersList(name));
+            uniqueUsers.forEach((name) => console.log(name));
+
+            const linkElement = document.querySelectorAll("#user-list a")
+            linkElement.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    // this keyword is used to get the current element i.e. the `a` tag
+                    console.log(this.dataset.name)
+                    showUserDetail(this.dataset.name)
+                })
+            })
+
+        } catch (err) {
+            console.error(err.message)
+            alert("Failed to fetch applications: ", err.message);
+        }
+    }
+
+    const showUsersList = (name) => {
+        const liElement = document.createElement("li");
+        usersListEl.appendChild(liElement);
+        liElement.innerHTML = `<li><a href="#" data-name="${name}">${name}</a></li>`
+    }
+
+    const showUserDetail = (name) => {
+        const detailSection = document.getElementById("detail-section");
+        const table = document.getElementById("user-table")
+        const tableHead = document.getElementById("user-name")
+        const tableBody = document.getElementById("user-body")
+        const totalEssayWords = document.getElementById("total-count")
+
+        tableHead.textContent = `${name}'s Applications`
+
+        const userEntries = applications.filter((application) => name === application.name);
+        console.log(userEntries);
+
+        tableBody.innerHTML = userEntries.map((entry) => {
+            return `<tr> 
+                <td>${entry.essay.length}</td>
+                <td>${new Date(entry.createdAt).toLocaleDateString()}</td> 
+                <td>${new Date(entry.updatedAt).toLocaleDateString()}</td></tr>`
+        }).join("");
+
+        const totalCount = userEntries.reduce((sum, user) => (sum += user.essay.length), 0)
+
+        totalEssayWords.textContent = `Total Essay Words for All Applications: ${totalCount}`
+
+        detailSection.style.display = "block";
+        document.getElementById("back-button").style.display = "block";
+        usersListEl.style.display = "none";
+    }
+
+    document.getElementById("back-button").addEventListener("click", function (e) {
+        usersListEl.style.display = "block";
+        document.getElementById("back-button").style.display = "none";
+        document.getElementById("detail-section").style.display = "none";
+    })
+    getApplications();
+</script>
