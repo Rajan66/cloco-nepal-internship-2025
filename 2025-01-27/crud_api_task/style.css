@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0px auto;
+  padding:2rem;
+  line-height: 2rem;
+}
+
+main{
+    padding:1rem 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 8px;
+}
