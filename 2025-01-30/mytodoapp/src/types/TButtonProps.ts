@@ -1,4 +1,4 @@
-export interface ButtonProps {
+export type TButtonProps = {
   label: string;
   onClick: () => void;
-}
+};

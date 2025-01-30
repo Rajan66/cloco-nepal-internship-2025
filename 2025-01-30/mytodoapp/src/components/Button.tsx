@@ -1,6 +1,6 @@
-import { ButtonProps } from '../interfaces/ButtonProps'
+import { TButtonProps } from '../types/TButtonProps'
 
-const Button = (props: ButtonProps) => {
+const Button = (props: TButtonProps) => {
     return <button onClick={props.onClick}>{props.label}</button>
 }
 
