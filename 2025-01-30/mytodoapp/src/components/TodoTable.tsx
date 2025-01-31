@@ -1,7 +1,7 @@
 import { EditIcon, TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { TApplication } from '../types/TApplication';
-import EditApplication from "./EditApplication";
+import ModalView from "./common/ModalView";
 
 type TodoProps = {
     applications: TApplication[];
@@ -14,15 +14,17 @@ const TodoTable = ({ applications, setApplications }: TodoProps) => {
     const [applicationToEdit, setApplicationToEdit] = useState<TApplication>();
 
     const handleFormSubmit = (data: TApplication) => {
-        setApplications((prevApps: TApplication[]) => (
-            prevApps.map((app) =>
-                app.email === data.email ? { ...app, ...data } : app // shallow copy, data overrides the existing fields in the app
+        setApplications((prevApps: TApplication[]) => {
+            return prevApps.map((app) =>
+                // email can't be updated, needs id 
+                app.email === data.email ? { ...app, ...data, email: data.email } : app // shallow copy, data overrides the existing fields in the app
             )
-        ));
+        });
     };
 
     useEffect(() => {
         setIsLoading(false); // useful when fetching data from api
+        console.log(applications)
     }, [applications]); // watch the applications, and change the loading state 
 
     const deleteApplication = (index: number) => {
@@ -72,8 +74,8 @@ const TodoTable = ({ applications, setApplications }: TodoProps) => {
                         <tr>
                             <td colSpan={6} className="p-4 text-center">Loading...</td>
                         </tr>
-                    ) : applications.length > 0 ? (
-                        applications.map((application, index) => (
+                    ) : applications?.length > 0 ? (
+                        applications?.map((application, index) => (
                             <tr key={index}>
                                 <td className="p-4 border-gray-200">
                                     <p className="block font-normal text-gray-900">{application.name}</p>
@@ -116,7 +118,11 @@ const TodoTable = ({ applications, setApplications }: TodoProps) => {
             </table>
 
             {showPopup && applicationToEdit && (
-                <EditApplication closeModal={closeModal} application={applicationToEdit} onSubmit={handleFormSubmit} />
+                <ModalView
+                    title="Edit Application"
+                    closeModal={closeModal}
+                    application={applicationToEdit}
+                    onSubmit={handleFormSubmit} />
             )}
         </div>
     );

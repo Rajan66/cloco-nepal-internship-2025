@@ -1,6 +1,6 @@
-import TodoTable from './TodoTable'
-import AddApplication from './AddApplication'
-import { TApplication } from '../types/TApplication'
+import TodoTable from '../TodoTable'
+import AddApplication from '../AddApplication'
+import { TApplication } from '../../types/TApplication'
 import { useState } from 'react';
 
 const Home = () => {

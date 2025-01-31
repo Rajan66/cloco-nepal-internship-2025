@@ -1,45 +1,50 @@
-import React, { useState, useEffect } from 'react'
+import { TApplication } from '../../types/TApplication';
 import { X } from 'lucide-react';
-import { TApplication } from '../types/TApplication';
 import Button from './Button';
+import { useEffect, useState } from 'react';
 
-type EditApplicationProps = {
+type FormProps = {
+    title: string
     closeModal: () => void;
-    application: TApplication;
-    onSubmit: any;
+    onSubmit: (formData: TApplication) => void;
+    application?: TApplication;
+    setShowPopup?: (flag: boolean) => void;
 }
 
-const EditApplication = ({ closeModal, application, onSubmit }: EditApplicationProps) => {
+const ModalView = ({ title, closeModal, application, onSubmit }: FormProps) => {
+
     const [formData, setFormData] = useState<TApplication>({
-        name: application.name || '',
-        email: application.email || '',
-        address: application.address || '',
-        phone: application.phone || '',
-        iq: application.iq || '',
+        name: application?.name || '',
+        email: application?.email || '',
+        address: application?.address || '',
+        phone: application?.phone || '',
+        iq: application?.iq || '',
     });
 
-    useEffect(() => {
-        setFormData(application);
-    }, [application]);
+    // useEffect(() => {
+    //     if (title === "Edit Application") {
+    //         setFormData(application!);
+    //     }
+    //     console.log(formData)
+    // }, [application]);
+
+    const submitForm = () => {
+        onSubmit(formData); // childFormProps sends event to parent 
+        closeModal();
+    }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
-            ...formData,
-            [e.target.name]: e.target.value // TODO research about the bracket in the e.target.name
-        });
-    };
-
-    const submitForm = () => {
-        onSubmit(formData); // child sends event to parent 
-        console.log(formData)
-        closeModal();
-    };
+            ...formData, // spread the form data
+            [e.target.name]: e.target.value // update the respective field
+        })
+    }
 
     return (
-        <div className="fixed inset-0 bg-black opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black opacity-60 flex items-center justify-center">
             <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-semibold">Edit Application</h2>
+                    <h2 className="text-lg font-semibold">{title}</h2>
                     <button onClick={closeModal} className="text-gray-500 hover:text-gray-800">
                         <X className="w-6 h-6 text-red-600" />
                     </button>
@@ -105,7 +110,7 @@ const EditApplication = ({ closeModal, application, onSubmit }: EditApplicationP
                 </form>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default EditApplication;
+export default ModalView
