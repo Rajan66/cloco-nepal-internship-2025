@@ -43,7 +43,7 @@ const TodoTable = ({ applications, setApplications }: TodoProps) => {
     };
 
     return (
-        <div className="w-full h-full text-gray-700 flex flex-col bg-white rounded-xl shadow-md">
+        <div className="w-full h-full text-gray-700 flex flex-col bg-white rounded-xl shadow-md static">
             <table className='w-full text-left'>
                 <thead>
                     <tr>

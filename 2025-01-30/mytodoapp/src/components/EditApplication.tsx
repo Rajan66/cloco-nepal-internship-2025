@@ -25,7 +25,7 @@ const EditApplication = ({ closeModal, application, onSubmit }: EditApplicationP
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value // TODO research about the bracket in the e.target.name
         });
     };
 
