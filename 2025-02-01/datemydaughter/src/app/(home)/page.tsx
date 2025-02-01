@@ -25,14 +25,14 @@ const page = () => {
     // TODO Question Why does getting applications from the localStorage, trigger useEffect, if applications is set as a dependency
 
     return (
-        <div className='h-screen'>
+        <div className='h-screen mb-10'>
             {isLoading ? (
                 <div className='flex justify-center items-center'>
                     <Loader2Icon />
                 </div>
             ) : applications.length > 0 ?
                 (
-                    <div>
+                    <div className=''>
                         {applications.map((application: TApplication, index: number) => (
                             // TODO: Question I had to spread the object, do props not accept objects?
                             // <Card key={index} application={application} />
@@ -45,7 +45,6 @@ const page = () => {
                         <a href="/application/form"><Button label='View form' /></a>
                     </div>)
             }
-
         </div >
     )
 }

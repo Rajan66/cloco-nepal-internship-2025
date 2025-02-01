@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import Table from '@/components/common/Table';
 import { tableHeads } from '@/components/dashboard/list/tableHeads';
+import { toast } from 'react-toastify';
 
 const page = () => {
     const router = useRouter();
@@ -25,6 +26,7 @@ const page = () => {
 
         localStorage.setItem("applications", JSON.stringify(storedApplications));
         setApplications(storedApplications);
+        toast.success("Application deleted succesfully", { autoClose: 2000 })
     };
 
 

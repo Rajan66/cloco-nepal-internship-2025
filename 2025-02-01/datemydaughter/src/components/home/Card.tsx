@@ -4,7 +4,7 @@ import React from 'react'
 
 const Card = ({ application, index }: TCardProps) => {
     return (
-        <div>
+        <div className=''>
             <div className='flex justify-between px-10 py-6 bg-darkShade m-10 rounded-2xl shadow-neutral-700 shadow-md'>
                 <div className='flex flex-col gap-4'>
                     <p className='flex gap-6'>

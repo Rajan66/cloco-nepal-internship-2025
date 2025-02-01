@@ -1,9 +1,10 @@
 "use client"
-import Button from '@/components/common/Button';
 import Form from '@/components/common/Form';
 import { TApplication } from '@/types/TApplication';
+import { time } from 'console';
 import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
 const page = () => {
     const { id: id } = useParams();
@@ -27,6 +28,7 @@ const page = () => {
         setApplications(updatedApps);
         localStorage.setItem("applications", JSON.stringify(updatedApps));
 
+        toast.success("Application updated succesfully", { autoClose: 2000 })
         router.push('/dashboard');
     };
     return (
