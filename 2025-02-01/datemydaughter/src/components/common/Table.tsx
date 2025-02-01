@@ -1,9 +1,21 @@
 import { TTableProps } from '@/types/props/TTableProps'
+import {
+    AlertDialog,
+    AlertDialogTrigger,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogDescription,
+    AlertDialogContent,
+    AlertDialogHeader,
+    AlertDialogFooter,
+    AlertDialogTitle
+} from '@/components/ui/alert-dialog'
 import { EditIcon, TrashIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
 // T, to make it a generic component
+// T extends Record<string, any> ensures that T is always an object with string keys and values of any type.
 const Table = <T extends Record<string, any>>({ isLoading, heading, datas, onDelete, editUrl }: TTableProps<T>) => {
     const router = useRouter();
     return (
@@ -44,15 +56,30 @@ const Table = <T extends Record<string, any>>({ isLoading, heading, datas, onDel
                                 {editUrl ? (
                                     <td className="p-4 border-gray-200">
                                         <div className="flex font-normal text-gray-900 gap-2">
-                                            <span className="bg-blue-600 p-1.5 rounded-md cursor-pointer">
+                                            <span className="bg-blue-600 p-2 rounded-md cursor-pointer">
                                                 {/* replace index with id */}
                                                 <EditIcon className="text-white" onClick={() => router.push(`/${editUrl}/${index}`)} />
                                             </span>
-                                            <span className="bg-red-600 p-1.5 rounded-md cursor-pointer">
-                                                <TrashIcon
-                                                    className="text-white"
-                                                    onClick={() => onDelete ? onDelete(index) : null}
-                                                />
+                                            <span className="bg-red-600 p-2 rounded-md cursor-pointer">
+                                                <AlertDialog>
+                                                    <AlertDialogTrigger>
+                                                        <TrashIcon
+                                                            className="text-white"
+                                                        />
+                                                    </AlertDialogTrigger>
+                                                    <AlertDialogContent>
+                                                        <AlertDialogHeader>
+                                                            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                                                            <AlertDialogDescription>
+                                                                This will permanently delete the application.
+                                                            </AlertDialogDescription>
+                                                        </AlertDialogHeader>
+                                                        <AlertDialogFooter>
+                                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                            <AlertDialogAction onClick={() => onDelete ? onDelete(index) : null}>Continue</AlertDialogAction>
+                                                        </AlertDialogFooter>
+                                                    </AlertDialogContent>
+                                                </AlertDialog>
                                             </span>
                                         </div>
                                     </td>

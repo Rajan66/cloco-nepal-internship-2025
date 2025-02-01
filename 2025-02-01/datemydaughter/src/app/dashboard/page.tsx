@@ -20,16 +20,11 @@ const page = () => {
     }, [])
 
     const deleteApplication = (index: number) => {
-        const isConfirmed = window.confirm("Are you sure you want to delete this application?"); // Replace with toast later
-        if (isConfirmed) {
-            const storedApplications = JSON.parse(localStorage.getItem("applications") || "[]");
+        const storedApplications = JSON.parse(localStorage.getItem("applications") || "[]");
+        storedApplications.splice(index, 1); // start at `index` and remove 1 element
 
-            storedApplications.splice(index, 1); // start at `index` and remove 1 element
-
-            localStorage.setItem("applications", JSON.stringify(storedApplications));
-
-            setApplications(storedApplications);
-        }
+        localStorage.setItem("applications", JSON.stringify(storedApplications));
+        setApplications(storedApplications);
     };
 
 
@@ -37,11 +32,11 @@ const page = () => {
         <div className='p-10 w-full gap-6 flex flex-col'>
             <div className='flex justify-between'>
                 <h2 className='text-2xl font-semibold'>Applications</h2>
-                <div>
-                    <Button label='Add application' onClick={() => router.push('/application/form')} />
+                <div onClick={() => router.push('/application/form')}>
+                    <Button label='Add application' />
                 </div>
             </div>
-            <Table isLoading={isLoading} heading={tableHeads} datas={applications} editUrl='/dashboard/application' onDelete={deleteApplication} />
+            <Table isLoading={isLoading} heading={tableHeads} datas={applications} editUrl='dashboard/application' onDelete={deleteApplication} />
         </div>
     )
 }
