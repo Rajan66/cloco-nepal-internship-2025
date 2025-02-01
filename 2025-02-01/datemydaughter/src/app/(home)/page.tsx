@@ -36,7 +36,7 @@ const page = () => {
                         {applications.map((application: TApplication, index: number) => (
                             // TODO: Question I had to spread the object, do props not accept objects?
                             // <Card key={index} application={application} />
-                            <Card key={index} {...application} />
+                            <Card key={index} application={application} index={index} />
                         ))}
                     </div>
                 ) : (
