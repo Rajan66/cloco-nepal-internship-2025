@@ -35,7 +35,7 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                     <div className="flex gap-4 items-center">
                         <label htmlFor="name" className="w-20 text-gray-100">Name*:</label>
                         <input
-                            placeholder="Enter your name"
+                            placeholder="Enter your name..."
                             onChange={handleChange}
                             name="name"
                             value={formData.name}
@@ -46,7 +46,7 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                     <div className="flex gap-4 items-center">
                         <label htmlFor="email" className="w-20 text-gray-100">Email*:</label>
                         <input
-                            placeholder="Enter your email"
+                            placeholder="Enter your email..."
                             onChange={handleChange}
                             name="email"
                             value={formData.email}
@@ -57,7 +57,7 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                     <div className="flex gap-4 items-center">
                         <label htmlFor="address" className="w-20 text-gray-100">Address*:</label>
                         <input
-                            placeholder="Enter your address"
+                            placeholder="Enter your address..."
                             onChange={handleChange}
                             name="address"
                             value={formData.address}
@@ -68,7 +68,7 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                     <div className="flex gap-4 items-center">
                         <label htmlFor="phone" className="w-20 text-gray-100">Phone*:</label>
                         <input
-                            placeholder="Enter your phone"
+                            placeholder="Enter your phone number..."
                             onChange={handleChange}
                             name="phone"
                             value={formData.phone}
@@ -79,7 +79,7 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                     <div className="flex gap-4 items-center">
                         <label htmlFor="iq" className="w-20 text-gray-100">IQ*:</label>
                         <input
-                            placeholder="Enter your iq"
+                            placeholder="Enter your iq..."
                             onChange={handleChange}
                             name="iq"
                             value={formData.iq}

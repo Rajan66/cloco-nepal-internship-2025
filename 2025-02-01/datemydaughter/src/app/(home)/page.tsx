@@ -15,10 +15,17 @@ const page = () => {
             setApplications(JSON.parse(storedApps));
         }
         setIsLoading(false);
-    }, [applications])
+    }, []) // if we put applications in the dependency, it will cause maximum depth execeeded error
+
+    /* Maximum update depth exceeded.
+     * This can happen when a component calls setState inside useEffect,
+     * but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render
+     */
+
+    // TODO Question Why does getting applications from the localStorage, trigger useEffect, if applications is set as a dependency
 
     return (
-        <div>
+        <div className='h-screen'>
             {isLoading ? (
                 <div className='flex justify-center items-center'>
                     <Loader2Icon />
@@ -33,8 +40,8 @@ const page = () => {
                         ))}
                     </div>
                 ) : (
-                    <div >
-                        <h2>Nothing here... go fill up an application</h2>
+                    <div className='flex flex-col items-center justify-center gap-6 h-screen'>
+                        <h2 className='text-xl'>Nothing here... go fill up an application</h2>
                         <a href="/application/form"><Button label='View form' /></a>
                     </div>)
             }
