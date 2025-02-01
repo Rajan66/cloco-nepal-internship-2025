@@ -20,13 +20,13 @@ const Card = (application: TApplication) => {
                         <span>{application.address}</span>
                     </p>
                 </div>
-                <div className='flex flex-col gap-4'>
-                    <p className='flex gap-2'>
-                        <span>Contact:</span>
+                <div className='flex flex-col gap-4 w-1/4  items-end'>
+                    <p className='flex gap-2 '>
+                        <span className=''>Contact:</span>
                         <span>{application.phone}</span>
                     </p>
-                    <p className='flex gap-2'>
-                        <span>IQ:</span>
+                    <p className='flex gap-2 '>
+                        <span className=''>IQ:</span>
                         <span>{application.iq}</span>
                     </p>
                     <p className='flex gap-1 items-center hover:text-red-300 cursor-pointer'>

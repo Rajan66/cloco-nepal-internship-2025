@@ -5,10 +5,12 @@ const SidebarItem = () => {
     return (
         <ul className='w-full flex flex-col gap-6 justify-center items-start '>
             {sidebarItems.map((item, index) => (
-                <li key={index} className='w-full hover:bg-neutral-500 p-4 flex justify-start items-center gap-2 cursor-pointer'>
-                    <span className='ml-4'><item.icon /></span>
-                    <p className='text-lg font-semibold'>{item.name}</p>
-                </li>
+                <a key={index} href={item.url} className='w-full hover:bg-neutral-500   cursor-pointer'>
+                    <li className='flex justify-start items-center gap-2 p-4'>
+                        <span className='ml-4'><item.icon /></span>
+                        <p className='text-lg font-semibold'>{item.name}</p>
+                    </li>
+                </a>
             ))}
         </ul>
     )
