@@ -1,12 +1,18 @@
+import Sidebar from "@/components/dashboard/Sidebar";
+
 export default function DashboardLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <section>
-            {/* add sidebar and topbar */}
-            <h2>Dashboard layout goes here</h2>
+        <section className="h-screen">
+            <div className="h-full flex">
+                <Sidebar />
+                <div>
+                    {children}
+                </div>
+            </div>
         </section>
     );
 }
