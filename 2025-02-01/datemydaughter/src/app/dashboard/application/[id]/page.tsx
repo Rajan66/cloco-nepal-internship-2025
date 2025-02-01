@@ -1,4 +1,5 @@
 "use client"
+import Button from '@/components/common/Button';
 import Form from '@/components/common/Form';
 import { TApplication } from '@/types/TApplication';
 import { useParams, useRouter } from 'next/navigation'
@@ -29,8 +30,7 @@ const page = () => {
         router.push('/dashboard');
     };
     return (
-        <div>
-            <h2> Passed something:{id}</h2>
+        <div className='flex flex-col justify-center items-start m-10'>
             <Form title='Edit Application' application={application} onSubmit={handleFormSubmit} />
         </div>
     )

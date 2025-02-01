@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { TFormProps } from '@/types/props/TFormProps'
 import { TApplication } from '@/types/TApplication';
 import Button from './Button';
+import { useRouter } from 'next/navigation';
 
 const Form = ({ title, application, onSubmit }: TFormProps) => {
+    const router = useRouter();
     const [formData, setFormData] = useState<TApplication>({
         name: '',
         email: '',
@@ -57,9 +59,6 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                                 onChange={handleChange}
                                 name={field}
                                 value={formData[field as keyof TApplication]} // controlled input
-                                // if i put the key directly: {formData.name}, useState will try to initialize the field as empty string ''
-                                // but if the application is undefined at first render, useEffect won't add the formData immediately
-                                // useEffect only gets called after the first render,
                                 className="w-[350px] bg-gray-100 text-gray-800 border p-2 rounded-md"
                             />
                         </div>
@@ -71,12 +70,19 @@ const Form = ({ title, application, onSubmit }: TFormProps) => {
                             placeholder="Write at least 50 words to prove your love..."
                             onChange={handleChange}
                             name="essay"
-                            value={formData.essay} // ✅ Ensures controlled input
+                            value={formData.essay}
                             className="w-[350px] min-h-[100px] bg-gray-100 text-gray-800 border p-2 rounded-md"
                         />
                     </div>
 
-                    <Button label="Submit" onClick={submitForm} />
+                    <div className='flex gap-5 justify-center items-center'>
+                        <Button label="Submit" onClick={submitForm} />
+                        {title === "Edit Application" ? (
+                            <Button label="Cancel" onClick={() => router.push('/dashboard')} />
+                        ) : (
+                            <div></div>
+                        )}
+                    </div>
                 </form>
             </div>
         </div>
