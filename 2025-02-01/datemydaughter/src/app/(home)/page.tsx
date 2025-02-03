@@ -15,7 +15,7 @@ const page = () => {
             setApplications(JSON.parse(storedApps));
         }
         setIsLoading(false);
-    }, []) // if we put applications in the dependency, it will cause maximum depth execeeded error
+    }, []) // icircular y , if we put applications in the dependency, it will cause maximum depth execeeded error
 
     /* Maximum update depth exceeded.
      * This can happen when a component calls setState inside useEffect,

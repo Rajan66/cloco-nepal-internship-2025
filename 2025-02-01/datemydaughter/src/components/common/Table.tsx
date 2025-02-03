@@ -10,7 +10,7 @@ import {
     AlertDialogFooter,
     AlertDialogTitle
 } from '@/components/ui/alert-dialog'
-import { EditIcon, TrashIcon } from 'lucide-react'
+import { EditIcon, Loader2Icon, TrashIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -39,7 +39,7 @@ const Table = <T extends Record<string, any>>({ isLoading, heading, datas, onDel
                 <tbody>
                     {isLoading ? (
                         <tr>
-                            <td colSpan={6} className="p-4 text-center">Loading...</td>
+                            <td colSpan={6} className="p-4 text-center"><Loader2Icon /></td>
                         </tr>
                     ) : datas?.length > 0 ? (
                         datas?.map((item: T, index: number) => (
