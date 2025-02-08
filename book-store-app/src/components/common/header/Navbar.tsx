@@ -1,15 +1,28 @@
-import logo from '@/app/favicon.ico'
-import Image from 'next/image'
+import { SidebarTrigger } from '@/components/ui/sidebar'
 import React from 'react'
+import ThemeToggle from '../ThemeToggle'
+import DropdownProfile from '../DropdownProfile'
+
+type TUser = {
+    name: string | null | undefined;
+    email: string;
+}
 
 const Navbar = () => {
+    // dummy type and name, replace with username when auth is implemented
+    const user: TUser = {
+        name: "Rajan",
+        email: "rajanmaharjan042@gmail.com"
+    }
+
     return (
-        <header className='sticky top-0 bg-dark w-full border-b-[2px] border-neutral-700'>
-            <nav className='mx-[20%] flex justify-between items-center p-4'>
-                <a href="/" className='flex gap-2 items-end cursor-pointer'>
-                    <Image src={logo} width={50} height={50} alt='BookStore-logo' />
-                    <span className='font-semibold text-red-300 text-2xl'>BookStore</span>
-                </a>
+        <header className='w-full top-0 bg-dark border-b-[2px] border-neutral-700'>
+            <nav className=' flex justify-between items-center p-4'>
+                <SidebarTrigger className="" />
+                <div className='flex gap-4 justify-center items-center'>
+                    <DropdownProfile user={user} />
+                    <ThemeToggle />
+                </div>
             </nav>
         </header>
     )

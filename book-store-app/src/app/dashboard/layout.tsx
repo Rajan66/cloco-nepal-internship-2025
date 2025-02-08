@@ -1,3 +1,6 @@
+import AppSidebar from "@/components/common/AppSidebar";
+import Navbar from "@/components/common/header/Navbar";
+import { SidebarProvider, } from "@/components/ui/sidebar";
 import React from "react";
 
 export default function DashboardLayout({
@@ -6,10 +9,14 @@ export default function DashboardLayout({
     children: React.ReactNode
 }>) {
     return (
-        <section>
-            {/* TODO sidebar goes here */}
-            dashboard
-            {children}
-        </section>
+        <SidebarProvider>
+            <AppSidebar />
+            <main className="flex flex-col w-full">
+                <div>
+                    <Navbar />
+                </div>
+                {children}
+            </main>
+        </SidebarProvider>
     )
 }
