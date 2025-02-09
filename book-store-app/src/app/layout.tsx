@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import QueryProvider from "@/components/providers/QueryProvider";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -32,12 +34,15 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="default"
-        >
-          {children}
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="default"
+          >
+            <ToastContainer />
+            {children}
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html >
   );
