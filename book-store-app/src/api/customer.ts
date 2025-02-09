@@ -1,6 +1,6 @@
 import { Customer } from "@/types/index";
 
-export const getData = async (): Promise<Customer[]> => {
+export const getCustomer = async (): Promise<Customer[]> => {
   try {
     const response = await fetch("http://localhost:5000/customers");
     if (!response.ok) {
@@ -15,5 +15,22 @@ export const getData = async (): Promise<Customer[]> => {
   } catch (error) {
     console.log(error);
     return [];
+  }
+};
+
+export const deleteCustomer = async (id: number) => {
+  try {
+    const response = await fetch(`http://localhost:5000/customers/${id}`, {
+      method: "DELETE",
+    });
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to delete customer: ${id}`);
+    }
+
+    return response;
+  } catch (error) {
+    console.log(error);
   }
 };

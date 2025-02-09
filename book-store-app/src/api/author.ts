@@ -1,6 +1,6 @@
 import { Author } from "@/types/index";
 
-export const getData = async (): Promise<Author[]> => {
+export const getAuthor = async (): Promise<Author[]> => {
   try {
     const response = await fetch("http://localhost:5000/authors");
     if (!response.ok) {
@@ -15,5 +15,22 @@ export const getData = async (): Promise<Author[]> => {
   } catch (error) {
     console.log(error);
     return [];
+  }
+};
+
+export const deleteAuthor = async (id: number) => {
+  try {
+    const response = await fetch(`http://localhost:5000/authors/${id}`, {
+      method: "DELETE",
+    });
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to delete author: ${id}`);
+    }
+
+    return response;
+  } catch (error) {
+    console.log(error);
   }
 };
