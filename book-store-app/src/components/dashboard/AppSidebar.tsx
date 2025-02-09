@@ -4,7 +4,6 @@ import {
     SidebarFooter,
     SidebarGroup,
     SidebarGroupContent,
-    SidebarGroupLabel,
     SidebarHeader,
     SidebarMenu,
     SidebarMenuButton,
@@ -13,7 +12,7 @@ import {
 import Image from "next/image"
 import logo from '@/app/favicon.ico'
 import { Button } from "../ui/button"
-import { items } from './header/list/items';
+import { items } from '../common/header/list/items';
 
 export default function AppSidebar() {
 
@@ -26,7 +25,6 @@ export default function AppSidebar() {
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
-                    {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
                     <SidebarGroupContent className="mt-6">
                         <SidebarMenu className="gap-4">
                             {items.map((item) => (

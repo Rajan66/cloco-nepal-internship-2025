@@ -1,0 +1,462 @@
+{
+  "books": [
+    {
+      "id": 950,
+      "isbn": "7270416866",
+      "title": "Task future find.",
+      "author": {
+        "id": 56,
+        "firstname": "Mackenzie",
+        "lastname": "Wilson",
+        "bio": "Choice clearly operation spring tonight test staff. Think store but support pressure study. Newspaper officer alone difficult."
+      },
+      "description": "Necessary range policy Mrs really receive message. Ahead chance pass throughout. Relate couple develop check hundred.",
+      "pageCount": 169,
+      "price": 18.44,
+      "publishedDate": null
+    },
+    {
+      "id": 291,
+      "isbn": "8656422813",
+      "title": "Speak cultural reflect.",
+      "author": {
+        "id": 61,
+        "firstname": "Janice",
+        "lastname": "Ward",
+        "bio": "Officer consider face require. Where notice military wait try. Behavior sing level stop great goal thought. Surface after push week realize trial appear."
+      },
+      "description": "Affect what its thing site. New debate ahead include million.",
+      "pageCount": 131,
+      "price": 24.02,
+      "publishedDate": null
+    },
+    {
+      "id": 732,
+      "isbn": "3653255805",
+      "title": "Result center current.",
+      "author": {
+        "id": 29,
+        "firstname": "David",
+        "lastname": "Ewing",
+        "bio": "Avoid debate threat final what. Of work more you black. Two enter idea religious kind hope ball child."
+      },
+      "description": "Daughter gas possible far bill. Social inside this her tax.",
+      "pageCount": 360,
+      "price": 27.91,
+      "publishedDate": "2001-11-15"
+    },
+    {
+      "id": 347,
+      "isbn": "5939892310",
+      "title": "Area only artist population others.",
+      "author": {
+        "id": 24,
+        "firstname": "Phillip",
+        "lastname": "Rose",
+        "bio": "News language eye watch. Family on reach rest heart later fire. Region feel weight nothing. Fear subject together offer cold all."
+      },
+      "description": "As in along environment. Forward region education nor.",
+      "pageCount": 218,
+      "price": 21.6,
+      "publishedDate": null
+    },
+    {
+      "id": 843,
+      "isbn": "1799764705",
+      "title": "Almost that.",
+      "author": {
+        "id": 80,
+        "firstname": "Travis",
+        "lastname": "Daniels",
+        "bio": "Method town the medical time agency. Build eight game should perhaps necessary only. Discussion may decision defense similar. Young stay ready world."
+      },
+      "description": "General interesting security allow. Me sure admit door analysis per cost. Write population conference deal company say.",
+      "pageCount": 500,
+      "price": 30.2,
+      "publishedDate": null
+    },
+    {
+      "id": 343,
+      "isbn": "5464455866",
+      "title": "World still speak.",
+      "author": {
+        "id": 19,
+        "firstname": "Brenda",
+        "lastname": "Williams",
+        "bio": "Sing child none computer truth. Week stock those situation fish. Early off far might involve go by."
+      },
+      "description": "Would name special president agree heart wonder.",
+      "pageCount": 493,
+      "price": 15.12,
+      "publishedDate": "2010-03-06"
+    },
+    {
+      "id": 588,
+      "isbn": "9614913930",
+      "title": "Its respond fish total relate.",
+      "author": {
+        "id": 32,
+        "firstname": "Arthur",
+        "lastname": "Walker",
+        "bio": "Such know plan business woman do top. Space trial candidate. Before product into court kid region energy. Central middle its help six wear generation your. Raise chance by."
+      },
+      "description": "Against usually question mean. Red detail stand treat build. Today employee grow character sound will tough.",
+      "pageCount": 538,
+      "price": 22.41,
+      "publishedDate": "2001-08-22"
+    },
+    {
+      "id": 476,
+      "isbn": "5726552409",
+      "title": "Statement follow different behind.",
+      "author": {
+        "id": 84,
+        "firstname": "Randy",
+        "lastname": "Jackson",
+        "bio": "Tree effect grow back memory stage occur. Out oil for happy. Receive mean nothing section let maybe agent. Child throughout religious. Piece their rock city."
+      },
+      "description": "Hour couple laugh new team. Start fire cold set gun.",
+      "pageCount": 675,
+      "price": 27.51,
+      "publishedDate": "2004-04-16"
+    },
+    {
+      "id": 599,
+      "isbn": "2712231569",
+      "title": "Study page yes.",
+      "author": {
+        "id": 90,
+        "firstname": "Evelyn",
+        "lastname": "Bryant",
+        "bio": "Build live today social book. Federal during rate message. Put allow back generation collection."
+      },
+      "description": "Option fall key learn. Compare create their above statement.",
+      "pageCount": 489,
+      "price": 25.37,
+      "publishedDate": "2003-09-19"
+    },
+    {
+      "id": 158,
+      "isbn": "7774842024",
+      "title": "Picture smile society.",
+      "author": {
+        "id": 56,
+        "firstname": "Rachael",
+        "lastname": "Foster",
+        "bio": "Before wish help listen despite. Pretty dog practice job spring senior hospital believe. Everyone prove enter able leg way future."
+      },
+      "description": "Team class clearly reflect information popular place.",
+      "pageCount": 414,
+      "price": 28.59,
+      "publishedDate": null
+    },
+    {
+      "id": 459,
+      "isbn": "5391142655",
+      "title": "Two possible early.",
+      "author": {
+        "id": 68,
+        "firstname": "Sarah",
+        "lastname": "Evans",
+        "bio": "Even thousand how feel prepare reason. Section leader air become seek. Majority agent quite quickly teach town. National natural left road."
+      },
+      "description": "Walk same court law. Itself sense theory away serve.",
+      "pageCount": 302,
+      "price": 23.77,
+      "publishedDate": null
+    },
+    {
+      "id": 214,
+      "isbn": "4477312824",
+      "title": "Success story friend.",
+      "author": {
+        "id": 63,
+        "firstname": "Jennifer",
+        "lastname": "Harris",
+        "bio": "Fine total guess defense role. Major argue push head sense level. Push military edge even organization approach reason."
+      },
+      "description": "Home happen challenge financial view space. Detail reveal next.",
+      "pageCount": 411,
+      "price": 29.99,
+      "publishedDate": null
+    },
+    {
+      "id": 813,
+      "isbn": "3605920074",
+      "title": "Effort consider charge.",
+      "author": {
+        "id": 55,
+        "firstname": "David",
+        "lastname": "Richardson",
+        "bio": "Year suffer material particular late. Father choose middle outside near main."
+      },
+      "description": "Land mention recent increase war try apply.",
+      "pageCount": 216,
+      "price": 31.88,
+      "publishedDate": "2003-05-23"
+    },
+    {
+      "id": 195,
+      "isbn": "1204849469",
+      "title": "Range remain world.",
+      "author": {
+        "id": 49,
+        "firstname": "Lisa",
+        "lastname": "Young",
+        "bio": "Garden evening first low expert never. Close his out party morning write."
+      },
+      "description": "Tell son material difficult. Near bar event despite task.",
+      "pageCount": 490,
+      "price": 18.29,
+      "publishedDate": "2002-07-15"
+    },
+    {
+      "id": 875,
+      "isbn": "2932245052",
+      "title": "Cut choice term.",
+      "author": {
+        "id": 22,
+        "firstname": "Samantha",
+        "lastname": "Clark",
+        "bio": "Forward offer glass practice party public. Deal step occur enter short lead college trip."
+      },
+      "description": "Else affect talk last child future always return.",
+      "pageCount": 211,
+      "price": 32.79,
+      "publishedDate": null
+    },
+    {
+      "id": 624,
+      "isbn": "8794578675",
+      "title": "Idea hour security.",
+      "author": {
+        "id": 12,
+        "firstname": "Ralph",
+        "lastname": "Martinez",
+        "bio": "Represent daughter left near. Second billion despite stay along world space. Ground us none music detail late cost always part."
+      },
+      "description": "Small response show across theory run road.",
+      "pageCount": 625,
+      "price": 29.54,
+      "publishedDate": "2020-04-12"
+    },
+    {
+      "id": 523,
+      "isbn": "8686921601",
+      "title": "Information hope time.",
+      "author": {
+        "id": 82,
+        "firstname": "Gloria",
+        "lastname": "Mitchell",
+        "bio": "Might turn mention support resource yourself. Could ten interview could provide page line."
+      },
+      "description": "Most provide share wish statement car air. Miss decide police collection home health.",
+      "pageCount": 265,
+      "price": 25.25,
+      "publishedDate": null
+    }
+  ],
+  "authors": [
+    {
+      "id": 56,
+      "firstname": "Mackenzie",
+      "lastname": "Wilson",
+      "email": "mackenzie.wilson@example.com",
+      "address": "123 Oak Street, Springfield, IL",
+      "phone": "555-1234",
+      "bio": "Choice clearly operation spring tonight test staff. Think store but support pressure study. Newspaper officer alone difficult.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 61,
+      "firstname": "Janice",
+      "lastname": "Ward",
+      "email": "janice.ward@example.com",
+      "address": "456 Elm Street, Chicago, IL",
+      "phone": "555-5678",
+      "bio": "Officer consider face require. Where notice military wait try. Behavior sing level stop great goal thought. Surface after push week realize trial appear.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 29,
+      "firstname": "David",
+      "lastname": "Ewing",
+      "email": "david.ewing@example.com",
+      "address": "789 Maple Avenue, New York, NY",
+      "phone": "555-9876",
+      "bio": "Avoid debate threat final what. Of work more you black. Two enter idea religious kind hope ball child.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 24,
+      "firstname": "Phillip",
+      "lastname": "Rose",
+      "email": "phillip.rose@example.com",
+      "address": "101 Pine Lane, Dallas, TX",
+      "phone": "555-2468",
+      "bio": "News language eye watch. Family on reach rest heart later fire. Region feel weight nothing. Fear subject together offer cold all.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 80,
+      "firstname": "Travis",
+      "lastname": "Daniels",
+      "email": "travis.daniels@example.com",
+      "address": "202 Birch Road, Miami, FL",
+      "phone": "555-1357",
+      "bio": "Method town the medical time agency. Build eight game should perhaps necessary only. Discussion may decision defense similar. Young stay ready world.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 19,
+      "firstname": "Brenda",
+      "lastname": "Williams",
+      "email": "brenda.williams@example.com",
+      "address": "303 Cedar Street, Los Angeles, CA",
+      "phone": "555-2469",
+      "bio": "Sing child none computer truth. Week stock those situation fish. Early off far might involve go by.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 32,
+      "firstname": "Arthur",
+      "lastname": "Walker",
+      "email": "arthur.walker@example.com",
+      "address": "404 Willow Drive, Seattle, WA",
+      "phone": "555-6789",
+      "bio": "Such know plan business woman do top. Space trial candidate. Before product into court kid region energy. Central middle its help six wear generation your. Raise chance by.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 84,
+      "firstname": "Randy",
+      "lastname": "Jackson",
+      "email": "randy.jackson@example.com",
+      "address": "505 Oak Drive, Austin, TX",
+      "phone": "555-1122",
+      "bio": "Tree effect grow back memory stage occur. Out oil for happy. Receive mean nothing section let maybe agent. Child throughout religious. Piece their rock city.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    },
+    {
+      "id": 90,
+      "firstname": "Evelyn",
+      "lastname": "Bryant",
+      "email": "evelyn.bryant@example.com",
+      "address": "606 Pine Street, Denver, CO",
+      "phone": "555-3345",
+      "bio": "Build live today social book. Federal during rate message. Put allow back generation collection.",
+      "books": [],
+      "createdAt": "2024-02-09"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "firstname": "Mackenzie",
+      "lastname": "Wilson",
+      "email": "mackenzie.wilson@customer.com",
+      "address": "123 Oak Street, Springfield, IL",
+      "phone": "555-1111",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "firstname": "Janice",
+      "lastname": "Ward",
+      "email": "janice.ward@customer.com",
+      "address": "456 Elm Street, Chicago, IL",
+      "phone": "555-2222",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "firstname": "David",
+      "lastname": "Ewing",
+      "email": "david.ewing@customer.com",
+      "address": "789 Maple Avenue, New York, NY",
+      "phone": "555-3333",
+      "createdAt": "2024-02-09",
+      "status": "inactive"
+    },
+    {
+      "id": 4,
+      "firstname": "Phillip",
+      "lastname": "Rose",
+      "email": "phillip.rose@customer.com",
+      "address": "101 Pine Lane, Dallas, TX",
+      "phone": "555-4444",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "firstname": "Travis",
+      "lastname": "Daniels",
+      "email": "travis.daniels@customer.com",
+      "address": "202 Birch Road, Miami, FL",
+      "phone": "555-5555",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    },
+    {
+      "id": 6,
+      "firstname": "Brenda",
+      "lastname": "Williams",
+      "email": "brenda.williams@customer.com",
+      "address": "303 Cedar Street, Los Angeles, CA",
+      "phone": "555-6666",
+      "createdAt": "2024-02-09",
+      "status": "inactive"
+    },
+    {
+      "id": 7,
+      "firstname": "Arthur",
+      "lastname": "Walker",
+      "email": "arthur.walker@customer.com",
+      "address": "404 Willow Drive, Seattle, WA",
+      "phone": "555-7777",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    },
+    {
+      "id": 8,
+      "firstname": "Randy",
+      "lastname": "Jackson",
+      "email": "randy.jackson@customer.com",
+      "address": "505 Oak Drive, Austin, TX",
+      "phone": "555-8888",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    },
+    {
+      "id": 9,
+      "firstname": "Evelyn",
+      "lastname": "Bryant",
+      "email": "evelyn.bryant@customer.com",
+      "address": "606 Pine Street, Denver, CO",
+      "phone": "555-9999",
+      "createdAt": "2024-02-09",
+      "status": "inactive"
+    },
+    {
+      "id": 10,
+      "firstname": "Sarah",
+      "lastname": "Evans",
+      "email": "sarah.evans@customer.com",
+      "address": "707 Birch Lane, Orlando, FL",
+      "phone": "555-0000",
+      "createdAt": "2024-02-09",
+      "status": "active"
+    }
+  ]
+}

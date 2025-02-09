@@ -1,8 +1,19 @@
+import DataTable from '@/components/common/DataTable'
+import { columns } from "@/components/dashboard/book/Columns"
+import { Book } from '@/types/index'
 import React from 'react'
+import { getData } from '@/api/book'
 
-const page = () => {
+// server component
+const page = async () => {
+
+  const data = await getData()
+  console.log(data)
+
   return (
-    <div>Book table and form goes here</div>
+    <div>
+      <DataTable<Book, string[]> columns={columns} data={data} />
+    </div>
   )
 }
 
