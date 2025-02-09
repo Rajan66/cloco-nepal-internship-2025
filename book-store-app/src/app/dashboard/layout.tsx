@@ -11,13 +11,11 @@ export default function DashboardLayout({
     return (
         <SidebarProvider>
             <AppSidebar />
-            <main className="flex flex-col w-full">
+            <main className="flex flex-col w-full overflow-x-hidden">
                 <div>
                     <Navbar />
                 </div>
-                <div className="container mx-auto md:mx-10 py-10">
-                    {children}
-                </div>
+                {children}
             </main>
         </SidebarProvider>
     )

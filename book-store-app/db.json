@@ -1,37 +1,7 @@
 {
   "books": [
     {
-      "id": 950,
-      "isbn": "7270416866",
-      "title": "Task future find.",
-      "author": {
-        "id": 56,
-        "firstname": "Mackenzie",
-        "lastname": "Wilson",
-        "bio": "Choice clearly operation spring tonight test staff. Think store but support pressure study. Newspaper officer alone difficult."
-      },
-      "description": "Necessary range policy Mrs really receive message. Ahead chance pass throughout. Relate couple develop check hundred.",
-      "pageCount": 169,
-      "price": 18.44,
-      "publishedDate": null
-    },
-    {
-      "id": 291,
-      "isbn": "8656422813",
-      "title": "Speak cultural reflect.",
-      "author": {
-        "id": 61,
-        "firstname": "Janice",
-        "lastname": "Ward",
-        "bio": "Officer consider face require. Where notice military wait try. Behavior sing level stop great goal thought. Surface after push week realize trial appear."
-      },
-      "description": "Affect what its thing site. New debate ahead include million.",
-      "pageCount": 131,
-      "price": 24.02,
-      "publishedDate": null
-    },
-    {
-      "id": 732,
+      "id": "732",
       "isbn": "3653255805",
       "title": "Result center current.",
       "author": {
@@ -46,22 +16,7 @@
       "publishedDate": "2001-11-15"
     },
     {
-      "id": 347,
-      "isbn": "5939892310",
-      "title": "Area only artist population others.",
-      "author": {
-        "id": 24,
-        "firstname": "Phillip",
-        "lastname": "Rose",
-        "bio": "News language eye watch. Family on reach rest heart later fire. Region feel weight nothing. Fear subject together offer cold all."
-      },
-      "description": "As in along environment. Forward region education nor.",
-      "pageCount": 218,
-      "price": 21.6,
-      "publishedDate": null
-    },
-    {
-      "id": 843,
+      "id": "843",
       "isbn": "1799764705",
       "title": "Almost that.",
       "author": {
@@ -76,7 +31,7 @@
       "publishedDate": null
     },
     {
-      "id": 343,
+      "id": "343",
       "isbn": "5464455866",
       "title": "World still speak.",
       "author": {
@@ -91,7 +46,7 @@
       "publishedDate": "2010-03-06"
     },
     {
-      "id": 588,
+      "id": "588",
       "isbn": "9614913930",
       "title": "Its respond fish total relate.",
       "author": {
@@ -106,7 +61,7 @@
       "publishedDate": "2001-08-22"
     },
     {
-      "id": 476,
+      "id": "476",
       "isbn": "5726552409",
       "title": "Statement follow different behind.",
       "author": {
@@ -121,7 +76,7 @@
       "publishedDate": "2004-04-16"
     },
     {
-      "id": 599,
+      "id": "599",
       "isbn": "2712231569",
       "title": "Study page yes.",
       "author": {
@@ -136,7 +91,7 @@
       "publishedDate": "2003-09-19"
     },
     {
-      "id": 158,
+      "id": "158",
       "isbn": "7774842024",
       "title": "Picture smile society.",
       "author": {
@@ -151,7 +106,7 @@
       "publishedDate": null
     },
     {
-      "id": 459,
+      "id": "459",
       "isbn": "5391142655",
       "title": "Two possible early.",
       "author": {
@@ -166,7 +121,7 @@
       "publishedDate": null
     },
     {
-      "id": 214,
+      "id": "214",
       "isbn": "4477312824",
       "title": "Success story friend.",
       "author": {
@@ -181,7 +136,7 @@
       "publishedDate": null
     },
     {
-      "id": 813,
+      "id": "813",
       "isbn": "3605920074",
       "title": "Effort consider charge.",
       "author": {
@@ -196,7 +151,7 @@
       "publishedDate": "2003-05-23"
     },
     {
-      "id": 195,
+      "id": "195",
       "isbn": "1204849469",
       "title": "Range remain world.",
       "author": {
@@ -211,7 +166,7 @@
       "publishedDate": "2002-07-15"
     },
     {
-      "id": 875,
+      "id": "875",
       "isbn": "2932245052",
       "title": "Cut choice term.",
       "author": {
@@ -226,7 +181,7 @@
       "publishedDate": null
     },
     {
-      "id": 624,
+      "id": "624",
       "isbn": "8794578675",
       "title": "Idea hour security.",
       "author": {
@@ -239,37 +194,11 @@
       "pageCount": 625,
       "price": 29.54,
       "publishedDate": "2020-04-12"
-    },
-    {
-      "id": 523,
-      "isbn": "8686921601",
-      "title": "Information hope time.",
-      "author": {
-        "id": 82,
-        "firstname": "Gloria",
-        "lastname": "Mitchell",
-        "bio": "Might turn mention support resource yourself. Could ten interview could provide page line."
-      },
-      "description": "Most provide share wish statement car air. Miss decide police collection home health.",
-      "pageCount": 265,
-      "price": 25.25,
-      "publishedDate": null
     }
   ],
   "authors": [
     {
-      "id": 56,
-      "firstname": "Mackenzie",
-      "lastname": "Wilson",
-      "email": "mackenzie.wilson@example.com",
-      "address": "123 Oak Street, Springfield, IL",
-      "phone": "555-1234",
-      "bio": "Choice clearly operation spring tonight test staff. Think store but support pressure study. Newspaper officer alone difficult.",
-      "books": [],
-      "createdAt": "2024-02-09"
-    },
-    {
-      "id": 61,
+      "id": "61",
       "firstname": "Janice",
       "lastname": "Ward",
       "email": "janice.ward@example.com",
@@ -280,7 +209,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 29,
+      "id": "29",
       "firstname": "David",
       "lastname": "Ewing",
       "email": "david.ewing@example.com",
@@ -291,7 +220,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 24,
+      "id": "24",
       "firstname": "Phillip",
       "lastname": "Rose",
       "email": "phillip.rose@example.com",
@@ -302,7 +231,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 80,
+      "id": "80",
       "firstname": "Travis",
       "lastname": "Daniels",
       "email": "travis.daniels@example.com",
@@ -313,7 +242,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 19,
+      "id": "19",
       "firstname": "Brenda",
       "lastname": "Williams",
       "email": "brenda.williams@example.com",
@@ -324,7 +253,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 32,
+      "id": "32",
       "firstname": "Arthur",
       "lastname": "Walker",
       "email": "arthur.walker@example.com",
@@ -335,7 +264,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 84,
+      "id": "84",
       "firstname": "Randy",
       "lastname": "Jackson",
       "email": "randy.jackson@example.com",
@@ -346,7 +275,7 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": 90,
+      "id": "90",
       "firstname": "Evelyn",
       "lastname": "Bryant",
       "email": "evelyn.bryant@example.com",
@@ -359,7 +288,7 @@
   ],
   "customers": [
     {
-      "id": 1,
+      "id": "1",
       "firstname": "Mackenzie",
       "lastname": "Wilson",
       "email": "mackenzie.wilson@customer.com",
@@ -369,7 +298,7 @@
       "status": "active"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstname": "Janice",
       "lastname": "Ward",
       "email": "janice.ward@customer.com",
@@ -379,7 +308,7 @@
       "status": "active"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstname": "David",
       "lastname": "Ewing",
       "email": "david.ewing@customer.com",
@@ -389,7 +318,7 @@
       "status": "inactive"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstname": "Phillip",
       "lastname": "Rose",
       "email": "phillip.rose@customer.com",
@@ -399,7 +328,7 @@
       "status": "active"
     },
     {
-      "id": 5,
+      "id": "5",
       "firstname": "Travis",
       "lastname": "Daniels",
       "email": "travis.daniels@customer.com",
@@ -409,7 +338,7 @@
       "status": "active"
     },
     {
-      "id": 6,
+      "id": "6",
       "firstname": "Brenda",
       "lastname": "Williams",
       "email": "brenda.williams@customer.com",
@@ -419,7 +348,7 @@
       "status": "inactive"
     },
     {
-      "id": 7,
+      "id": "7",
       "firstname": "Arthur",
       "lastname": "Walker",
       "email": "arthur.walker@customer.com",
@@ -429,7 +358,7 @@
       "status": "active"
     },
     {
-      "id": 8,
+      "id": "8",
       "firstname": "Randy",
       "lastname": "Jackson",
       "email": "randy.jackson@customer.com",
@@ -439,7 +368,7 @@
       "status": "active"
     },
     {
-      "id": 9,
+      "id": "9",
       "firstname": "Evelyn",
       "lastname": "Bryant",
       "email": "evelyn.bryant@customer.com",
@@ -449,7 +378,7 @@
       "status": "inactive"
     },
     {
-      "id": 10,
+      "id": "10",
       "firstname": "Sarah",
       "lastname": "Evans",
       "email": "sarah.evans@customer.com",
