@@ -1,120 +1,74 @@
 {
   "books": [
     {
-      "id": "343",
-      "isbn": "5464455866",
       "title": "World still speak.",
-      "author": {
-        "id": 19,
-        "firstname": "Brenda",
-        "lastname": "Williams",
-        "bio": "Sing child none computer truth. Week stock those situation fish. Early off far might involve go by."
-      },
+      "isbn": "5464455866",
+      "author": "Mary Jane",
       "description": "Would name special president agree heart wonder.",
-      "pageCount": 493,
-      "price": 15.12,
-      "publishedDate": "2010-03-06"
+      "price": 23,
+      "pageCount": 255,
+      "id": "343"
     },
     {
-      "id": "588",
-      "isbn": "9614913930",
       "title": "Its respond fish total relate.",
-      "author": {
-        "id": 32,
-        "firstname": "Arthur",
-        "lastname": "Walker",
-        "bio": "Such know plan business woman do top. Space trial candidate. Before product into court kid region energy. Central middle its help six wear generation your. Raise chance by."
-      },
+      "isbn": "9614913930",
+      "author": "Raphael Martinez",
       "description": "Against usually question mean. Red detail stand treat build. Today employee grow character sound will tough.",
+      "price": 53.193,
       "pageCount": 538,
-      "price": 22.41,
-      "publishedDate": "2001-08-22"
+      "id": "588"
     },
     {
-      "id": "476",
-      "isbn": "5726552409",
       "title": "Statement follow different behind.",
-      "author": {
-        "id": 84,
-        "firstname": "Randy",
-        "lastname": "Jackson",
-        "bio": "Tree effect grow back memory stage occur. Out oil for happy. Receive mean nothing section let maybe agent. Child throughout religious. Piece their rock city."
-      },
+      "isbn": "5726552409",
+      "author": "Suzy Hems",
       "description": "Hour couple laugh new team. Start fire cold set gun.",
+      "price": 27.51333333556,
       "pageCount": 675,
-      "price": 27.51,
-      "publishedDate": "2004-04-16"
+      "id": "476"
     },
     {
       "id": "599",
       "isbn": "2712231569",
       "title": "Study page yes.",
-      "author": {
-        "id": 90,
-        "firstname": "Evelyn",
-        "lastname": "Bryant",
-        "bio": "Build live today social book. Federal during rate message. Put allow back generation collection."
-      },
+      "author": "Molly Jane",
       "description": "Option fall key learn. Compare create their above statement.",
       "pageCount": 489,
       "price": 25.37,
       "publishedDate": "2003-09-19"
     },
     {
-      "id": "158",
-      "isbn": "7774842024",
       "title": "Picture smile society.",
-      "author": {
-        "id": 56,
-        "firstname": "Rachael",
-        "lastname": "Foster",
-        "bio": "Before wish help listen despite. Pretty dog practice job spring senior hospital believe. Everyone prove enter able leg way future."
-      },
+      "isbn": "7774842024",
+      "author": "Cooper Martin",
       "description": "Team class clearly reflect information popular place.",
-      "pageCount": 414,
       "price": 28.59,
-      "publishedDate": null
+      "pageCount": 414,
+      "id": "158"
     },
     {
-      "id": "459",
-      "isbn": "5391142655",
       "title": "Two possible early.",
-      "author": {
-        "id": 68,
-        "firstname": "Sarah",
-        "lastname": "Evans",
-        "bio": "Even thousand how feel prepare reason. Section leader air become seek. Majority agent quite quickly teach town. National natural left road."
-      },
+      "isbn": "5391142655",
+      "author": "Matty Seeth",
       "description": "Walk same court law. Itself sense theory away serve.",
-      "pageCount": 302,
       "price": 23.77,
-      "publishedDate": null
+      "pageCount": 302,
+      "id": "459"
     },
     {
-      "id": "214",
-      "isbn": "4477312824",
       "title": "Success story friend.",
-      "author": {
-        "id": 63,
-        "firstname": "Jennifer",
-        "lastname": "Harris",
-        "bio": "Fine total guess defense role. Major argue push head sense level. Push military edge even organization approach reason."
-      },
+      "isbn": "4477312824",
+      "author": "Jack Reed",
       "description": "Home happen challenge financial view space. Detail reveal next.",
-      "pageCount": 411,
       "price": 29.99,
-      "publishedDate": null
+      "pageCount": 411,
+      "id": "214"
     },
     {
       "id": "813",
       "isbn": "3605920074",
       "title": "Effort consider charge.",
-      "author": {
-        "id": 55,
-        "firstname": "David",
-        "lastname": "Richardson",
-        "bio": "Year suffer material particular late. Father choose middle outside near main."
-      },
+      "author": "Molly Jane",
       "description": "Land mention recent increase war try apply.",
       "pageCount": 216,
       "price": 31.88,
@@ -124,46 +78,48 @@
       "id": "195",
       "isbn": "1204849469",
       "title": "Range remain world.",
-      "author": {
-        "id": 49,
-        "firstname": "Lisa",
-        "lastname": "Young",
-        "bio": "Garden evening first low expert never. Close his out party morning write."
-      },
+      "author": "Molly Jane",
       "description": "Tell son material difficult. Near bar event despite task.",
       "pageCount": 490,
       "price": 18.29,
       "publishedDate": "2002-07-15"
     },
     {
-      "id": "875",
-      "isbn": "2932245052",
       "title": "Cut choice term.",
-      "author": {
-        "id": 22,
-        "firstname": "Samantha",
-        "lastname": "Clark",
-        "bio": "Forward offer glass practice party public. Deal step occur enter short lead college trip."
-      },
+      "isbn": "2932245052",
+      "author": "Tom Mason",
       "description": "Else affect talk last child future always return.",
-      "pageCount": 211,
       "price": 32.79,
-      "publishedDate": null
+      "pageCount": 211,
+      "id": "875"
     },
     {
       "id": "624",
       "isbn": "8794578675",
       "title": "Idea hour security.",
-      "author": {
-        "id": 12,
-        "firstname": "Ralph",
-        "lastname": "Martinez",
-        "bio": "Represent daughter left near. Second billion despite stay along world space. Ground us none music detail late cost always part."
-      },
+      "author": "Molly Jane",
       "description": "Small response show across theory run road.",
       "pageCount": 625,
       "price": 29.54,
       "publishedDate": "2020-04-12"
+    },
+    {
+      "title": "Redemption Burger",
+      "isbn": "13g229E-193i",
+      "author": "Jack Blaine",
+      "description": "Its raw",
+      "price": 33,
+      "pageCount": 100,
+      "id": "00a0"
+    },
+    {
+      "id": "0e76",
+      "title": "Something in the way",
+      "isbn": "eu293-94j1",
+      "author": "David Chapel",
+      "description": "Some things really in the way",
+      "price": "44",
+      "pageCount": "421"
     }
   ],
   "authors": [
@@ -245,15 +201,22 @@
       "createdAt": "2024-02-09"
     },
     {
-      "id": "90",
-      "firstname": "Evelyn",
+      "firstname": "Evelyne",
       "lastname": "Bryant",
       "email": "evelyn.bryant@example.com",
       "address": "606 Pine Street, Denver, CO",
       "phone": "555-3345",
       "bio": "Build live today social book. Federal during rate message. Put allow back generation collection.",
-      "books": [],
-      "createdAt": "2024-02-09"
+      "id": "90"
+    },
+    {
+      "id": "43bf",
+      "firstname": "Rajan",
+      "lastname": "Maharjan",
+      "email": "rajanmaharjan042@gmail.com",
+      "address": "Mhepi",
+      "phone": "9810350199",
+      "bio": "This is some words about myself"
     }
   ],
   "customers": [
@@ -346,16 +309,6 @@
       "phone": "555-9999",
       "createdAt": "2024-02-09",
       "status": "inactive"
-    },
-    {
-      "id": "10",
-      "firstname": "Sarah",
-      "lastname": "Evans",
-      "email": "sarah.evans@customer.com",
-      "address": "707 Birch Lane, Orlando, FL",
-      "phone": "555-0000",
-      "createdAt": "2024-02-09",
-      "status": "active"
     }
   ]
 }

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import {
     ColumnDef,
     flexRender,
     getCoreRowModel,
     useReactTable,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
 
 import {
     Table,
@@ -14,25 +14,20 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
-import { Loader2Icon } from "lucide-react"
+} from "@/components/ui/table";
 
 interface DataTableProps<TData, TValue> {
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-    isLoading?: boolean;
+    columns: ColumnDef<TData, TValue>[];
+    data: TData[];
 }
 
 // client component
-const DataTable = <TData, TValue>({
-    columns, data, isLoading
-}: DataTableProps<TData, TValue>) => {
-
+const DataTable = <TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) => {
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
-    })
+    });
 
     return (
         <div className="rounded-md border">
@@ -45,9 +40,9 @@ const DataTable = <TData, TValue>({
                                     {header.isPlaceholder
                                         ? null
                                         : flexRender(
-                                            header.column.columnDef.header,
-                                            header.getContext()
-                                        )}
+                                              header.column.columnDef.header,
+                                              header.getContext()
+                                          )}
                                 </TableHead>
                             ))}
                         </TableRow>
@@ -62,24 +57,28 @@ const DataTable = <TData, TValue>({
                             >
                                 {row.getVisibleCells().map((cell) => (
                                     <TableCell key={cell.id}>
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        {flexRender(
+                                            cell.column.columnDef.cell,
+                                            cell.getContext()
+                                        )}
                                     </TableCell>
                                 ))}
                             </TableRow>
                         ))
-                    ) : isLoading ? (
-                        <div className="flex items-center justify-center"><Loader2Icon /></div>
                     ) : (
                         <TableRow>
-                            <TableCell colSpan={columns.length} className="h-24 text-center">
+                            <TableCell
+                                colSpan={columns.length}
+                                className="h-24 text-center"
+                            >
                                 No results.
                             </TableCell>
                         </TableRow>
                     )}
                 </TableBody>
-            </Table >
-        </div >
-    )
-}
+            </Table>
+        </div>
+    );
+};
 
 export default DataTable;
