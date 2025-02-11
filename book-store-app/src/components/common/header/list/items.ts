@@ -3,7 +3,7 @@ import { BookIcon, LayoutDashboard, User2, UserPen } from "lucide-react";
 export const items = [
   {
     title: "Overview",
-    url: "/dashboard",
+    url: "/dashboard/overview",
     icon: LayoutDashboard,
   },
   {
