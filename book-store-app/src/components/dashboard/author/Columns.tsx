@@ -1,7 +1,9 @@
 "use client"
+import { toast } from "react-toastify";
 import { ColumnDef } from "@tanstack/react-table"
-import { Author } from "@/types/index";
-import { MoreHorizontal } from "lucide-react"
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { Delete, MoreHorizontal } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -11,9 +13,20 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { deleteAuthor } from "@/api/author";
-import { AlertDialogDescription, AlertDialogTrigger, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
-
+import {
+    AlertDialogDescription,
+    AlertDialogTrigger,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle
+} from "@/components/ui/alert-dialog";
+import { deleteAuthor } from "@/app/dashboard/author/author";
+import { Author } from "@/types/index";
+import { useRouter } from "next/navigation";
 // where do i put components of pages inside dashboard
 export const columns: ColumnDef<Author>[] = [
     {
@@ -37,7 +50,7 @@ export const columns: ColumnDef<Author>[] = [
         header: "Phone",
     },
     {
-        accessorFn: (row: Author) => `${row.bio?.substring(0, 50)}...`,
+        accessorFn: (row: Author) => `${row.bio ? `${row.bio?.substring(0, 50)}...` : ""}`,
         header: "Bio",
     },
     {
@@ -48,6 +61,16 @@ export const columns: ColumnDef<Author>[] = [
         id: "actions",
         cell: ({ row }) => {
             const author = row.original
+            const router = useRouter();
+
+            const queryClient = useQueryClient();
+            const { mutate, isPending: Deleting } = useMutation({
+                mutationFn: deleteAuthor,
+                onSuccess: () => {
+                    toast.success("Author deleted successfully");
+                    queryClient.invalidateQueries({ queryKey: ["authors"] });
+                },
+            });
 
             return (
                 <DropdownMenu>
@@ -65,10 +88,12 @@ export const columns: ColumnDef<Author>[] = [
                             Copy Author ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem >Edit Author</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => router.push(`/dashboard/author/${author.id}`)}>Edit Author</DropdownMenuItem>
                         <AlertDialog>
                             <AlertDialogTrigger asChild>
-                                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>Delete Author</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                                    {Deleting ? "Deleting..." : "Delete Author"}
+                                </DropdownMenuItem>
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
@@ -79,9 +104,7 @@ export const columns: ColumnDef<Author>[] = [
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction onClick={async () => {
-                                        await deleteAuthor(author.id)
-                                    }}>
+                                    <AlertDialogAction onClick={() => mutate(author.id)} disabled={Deleting}>
                                         Continue
                                     </AlertDialogAction>
                                 </AlertDialogFooter>
