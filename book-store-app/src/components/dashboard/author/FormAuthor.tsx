@@ -52,7 +52,7 @@ const FormAuthor = () => {
             reset();
             router.push("/dashboard/author");
         } catch (error) {
-            toast.error(`Error: ${error}`);
+            toast.error(`Something went wrong`);
             console.error("Form submit error:", error);
         }
     };

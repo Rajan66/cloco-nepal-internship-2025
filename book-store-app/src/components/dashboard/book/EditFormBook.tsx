@@ -79,7 +79,7 @@ const EditFormBook = () => {
             reset();
             router.push("/dashboard/book");
         } catch (error) {
-            toast.error(`Error: ${error}`);
+            toast.error(`Something went wrong!`);
             console.error("Form submit error:", error);
         }
     };

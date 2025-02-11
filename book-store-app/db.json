@@ -221,46 +221,6 @@
   ],
   "customers": [
     {
-      "id": "1",
-      "firstname": "Mackenzie",
-      "lastname": "Wilson",
-      "email": "mackenzie.wilson@customer.com",
-      "address": "123 Oak Street, Springfield, IL",
-      "phone": "555-1111",
-      "createdAt": "2024-02-09",
-      "status": "active"
-    },
-    {
-      "id": "2",
-      "firstname": "Janice",
-      "lastname": "Ward",
-      "email": "janice.ward@customer.com",
-      "address": "456 Elm Street, Chicago, IL",
-      "phone": "555-2222",
-      "createdAt": "2024-02-09",
-      "status": "active"
-    },
-    {
-      "id": "3",
-      "firstname": "David",
-      "lastname": "Ewing",
-      "email": "david.ewing@customer.com",
-      "address": "789 Maple Avenue, New York, NY",
-      "phone": "555-3333",
-      "createdAt": "2024-02-09",
-      "status": "inactive"
-    },
-    {
-      "id": "4",
-      "firstname": "Phillip",
-      "lastname": "Rose",
-      "email": "phillip.rose@customer.com",
-      "address": "101 Pine Lane, Dallas, TX",
-      "phone": "555-4444",
-      "createdAt": "2024-02-09",
-      "status": "active"
-    },
-    {
       "id": "5",
       "firstname": "Travis",
       "lastname": "Daniels",
@@ -281,34 +241,20 @@
       "status": "inactive"
     },
     {
-      "id": "7",
       "firstname": "Arthur",
       "lastname": "Walker",
       "email": "arthur.walker@customer.com",
       "address": "404 Willow Drive, Seattle, WA",
       "phone": "555-7777",
-      "createdAt": "2024-02-09",
-      "status": "active"
+      "id": "7"
     },
     {
-      "id": "8",
-      "firstname": "Randy",
-      "lastname": "Jackson",
-      "email": "randy.jackson@customer.com",
-      "address": "505 Oak Drive, Austin, TX",
-      "phone": "555-8888",
-      "createdAt": "2024-02-09",
-      "status": "active"
-    },
-    {
-      "id": "9",
-      "firstname": "Evelyn",
-      "lastname": "Bryant",
-      "email": "evelyn.bryant@customer.com",
-      "address": "606 Pine Street, Denver, CO",
-      "phone": "555-9999",
-      "createdAt": "2024-02-09",
-      "status": "inactive"
+      "id": "d7ef",
+      "firstname": "James",
+      "lastname": "Parley",
+      "email": "james.parley@gmail.com",
+      "address": "Houston",
+      "phone": "5555-13941"
     }
   ]
 }

@@ -79,7 +79,7 @@ const EditFormAuthor = () => {
             reset();
             router.push("/dashboard/author");
         } catch (error) {
-            toast.error(`Error: ${error}`);
+            toast.error(`Something went wrong`);
             console.error("Form submit error:", error);
         }
     };
@@ -114,8 +114,15 @@ const EditFormAuthor = () => {
 
             <div className="flex flex-col gap-2 ">
                 <Label htmlFor="email">Email:*</Label>
-                <Input id="email" type="text" placeholder="Enter email..." {...register("email")} />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+                <Input
+                    id="email"
+                    type="text"
+                    placeholder="Enter email..."
+                    {...register("email")}
+                />
+                {errors.email && (
+                    <p className="text-red-500 text-sm">{errors.email.message}</p>
+                )}
             </div>
             <div className="flex flex-col gap-2 ">
                 <Label htmlFor="address">Address:</Label>
@@ -132,14 +139,27 @@ const EditFormAuthor = () => {
 
             <div className="flex flex-col gap-2 ">
                 <Label htmlFor="phone">Phone:</Label>
-                <Input id="phone" type="text" placeholder="Enter phone..." {...register("phone")} />
-                {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
+                <Input
+                    id="phone"
+                    type="text"
+                    placeholder="Enter phone..."
+                    {...register("phone")}
+                />
+                {errors.phone && (
+                    <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                )}
             </div>
 
             <div className="flex flex-col gap-2 ">
                 <Label htmlFor="bio">Bio:</Label>
-                <Textarea id="bio" placeholder="Write a few words..." {...register("bio")} />
-                {errors.bio && <p className="text-red-500 text-sm">{errors.bio?.message}</p>}
+                <Textarea
+                    id="bio"
+                    placeholder="Write a few words..."
+                    {...register("bio")}
+                />
+                {errors.bio && (
+                    <p className="text-red-500 text-sm">{errors.bio?.message}</p>
+                )}
             </div>
 
             <Button type="submit" className="w-fit p-4">

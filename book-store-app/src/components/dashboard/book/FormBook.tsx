@@ -57,8 +57,8 @@ const FormBook = () => {
             reset();
             router.push("/dashboard/book");
         } catch (error) {
-            console.log(`Form submit error: ${error}`);
-            toast.error(`Error: ${error}`);
+            console.log(`Form submit Something went wrong`);
+            toast.error(`Something went wrong`);
         }
     };
     console.log(errors);
