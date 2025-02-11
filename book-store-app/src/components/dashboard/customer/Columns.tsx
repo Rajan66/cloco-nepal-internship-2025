@@ -1,7 +1,9 @@
 "use client"
+import { toast } from "react-toastify";
 import { ColumnDef } from "@tanstack/react-table"
-import { Customer } from "@/types/index";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { MoreHorizontal } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -11,7 +13,19 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+    AlertDialogDescription,
+    AlertDialogTrigger,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle
+} from "@/components/ui/alert-dialog";
 import { deleteCustomer } from "@/app/dashboard/customer/customer";
+import { Customer } from "@/types/index";
 
 // client component
 export const columns: ColumnDef<Customer>[] = [
@@ -47,7 +61,14 @@ export const columns: ColumnDef<Customer>[] = [
         id: "actions",
         cell: ({ row }) => {
             const customer = row.original
-
+            const queryClient = useQueryClient();
+            const { mutate, isPending: Deleting } = useMutation({
+                mutationFn: deleteCustomer,
+                onSuccess: () => {
+                    toast.success("Customer deleted successfully");
+                    queryClient.invalidateQueries({ queryKey: ["customers"] });
+                },
+            });
             return (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -61,11 +82,31 @@ export const columns: ColumnDef<Customer>[] = [
                         <DropdownMenuItem
                             onClick={() => navigator.clipboard.writeText(customer.id.toString())}
                         >
-                            Copy Customer ID
+                            Copy Book ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem >Edit Customer</DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => deleteCustomer(customer.id)}>Delete Customer</DropdownMenuItem>
+                        <DropdownMenuItem>Edit Book</DropdownMenuItem>
+                        <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                                    {Deleting ? "Deleting..." : "Delete Book"}
+                                </DropdownMenuItem>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Delete book?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        Are you sure you want to delete this author?
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction onClick={() => mutate(customer.id)} disabled={Deleting}>
+                                        Continue
+                                    </AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )

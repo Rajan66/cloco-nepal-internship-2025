@@ -8,14 +8,15 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import Image from "next/image"
-import logo from '@/app/favicon.ico'
-import { Button } from "../ui/button"
-import { items } from '../common/header/list/items';
+} from "@/components/ui/sidebar";
+import Image from "next/image";
+import logo from "@/app/favicon.ico";
+import { Button } from "../ui/button";
+import { items } from "../common/header/list/items";
+import Link from "next/link";
+import { LogOutIcon } from "lucide-react";
 
 export default function AppSidebar() {
-
     return (
         <Sidebar>
             <SidebarHeader className="flex gap-4 flex-row items-center">
@@ -28,7 +29,7 @@ export default function AppSidebar() {
                         <SidebarMenu className="gap-4">
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="text-base" >
+                                    <SidebarMenuButton asChild className="text-base">
                                         <a href={item.url}>
                                             <item.icon />
                                             <span>{item.title}</span>
@@ -41,8 +42,13 @@ export default function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter className="my-4">
-                <Button>Logout</Button>
+                <Link href="/">
+                    <Button className="w-full">
+                        <LogOutIcon />
+                        Logout
+                    </Button>
+                </Link>
             </SidebarFooter>
         </Sidebar>
-    )
+    );
 }

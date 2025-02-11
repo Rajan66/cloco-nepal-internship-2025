@@ -1,26 +1,37 @@
-"use client"
-import DataTable from '@/components/common/DataTable'
-import { columns } from "@/components/dashboard/book/Columns"
-import { Book } from '@/types/index'
-import React, { useEffect } from 'react'
-import { useGetBooks } from '@/hooks/bookQueries'
-import { Loader2Icon } from 'lucide-react'
+"use client";
+import React from "react";
+import Link from "next/link";
+
+import { PlusCircleIcon } from "lucide-react";
+
+import DataTable from "@/components/common/DataTable";
+import Loading from "@/components/common/Loading";
+import { columns } from "@/components/dashboard/book/Columns";
+import { Button } from "@/components/ui/button";
+import { useGetBooks } from "@/hooks/bookQueries";
+import { Book } from "@/types/index";
 
 const page = () => {
+    const { data, isLoading } = useGetBooks();
 
-  const { data: books, isLoading } = useGetBooks();
-
-  return (
-    <div className="mx-auto md:mx-10 py-10 ">
-      {!isLoading ? (
-        <DataTable<Book, string[]> columns={columns} data={books ?? []} isLoading={isLoading} />
-      ) : (
-        <div className='flex justify-center items-center'>
-          <Loader2Icon className='text-blue-600' />
+    return (
+        <div className="mx-auto md:mx-10 py-4 ">
+            <div className="pb-4 justify-between flex">
+                <div></div>
+                <Link href="/dashboard/book/new">
+                    <Button>
+                        <PlusCircleIcon />
+                        Add Book
+                    </Button>
+                </Link>
+            </div>
+            {!isLoading ? (
+                <DataTable<Book, string[]> columns={columns} data={data ?? []} />
+            ) : (
+                <Loading />
+            )}
         </div>
-      )}
-    </div>
-  )
-}
+    );
+};
 
-export default page
+export default page;
