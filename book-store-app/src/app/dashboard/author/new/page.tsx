@@ -5,7 +5,11 @@ import NewPage from "@/components/dashboard/NewPage";
 
 const page = () => {
     return (
-        <NewPage url={`/dashbord/author`} title="Create a New Author" Form={FormAuthor} />
+        <NewPage
+            url={`/dashboard/author`}
+            title="Create a New Author"
+            Form={FormAuthor}
+        />
     );
 };
 

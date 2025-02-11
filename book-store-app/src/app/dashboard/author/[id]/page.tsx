@@ -1,20 +1,11 @@
 import React from "react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import EditFormAuthor from "@/components/dashboard/author/EditFormAuthor";
+import NewPage from "@/components/dashboard/NewPage";
 
 const page = () => {
     return (
-        <div className="p-10">
-            <Card className="p-2 ">
-                <CardHeader>
-                    <CardTitle>Update Author</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <EditFormAuthor />
-                </CardContent>
-            </Card>
-        </div>
+        <NewPage Form={EditFormAuthor} url="/dashboard/author" title="Update Author" />
     );
 };
 

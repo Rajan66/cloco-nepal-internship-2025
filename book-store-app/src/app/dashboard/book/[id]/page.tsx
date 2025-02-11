@@ -1,21 +1,10 @@
 import React from "react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import EditFormBook from "@/components/dashboard/book/EditFormBook";
+import NewPage from "@/components/dashboard/NewPage";
 
 const page = () => {
-    return (
-        <div className="p-10">
-            <Card className="p-2 ">
-                <CardHeader>
-                    <CardTitle>Update Author</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <EditFormBook />
-                </CardContent>
-            </Card>
-        </div>
-    );
+    return <NewPage Form={EditFormBook} url="/dashboard/book" title="Update Book" />;
 };
 
 export default page;

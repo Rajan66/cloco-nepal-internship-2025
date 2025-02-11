@@ -1,12 +1,13 @@
+import React from "react";
+
 import AppSidebar from "@/components/dashboard/AppSidebar";
 import Navbar from "@/components/common/header/Navbar";
-import { SidebarProvider, } from "@/components/ui/sidebar";
-import React from "react";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function DashboardLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode
+    children: React.ReactNode;
 }>) {
     return (
         <SidebarProvider>
@@ -18,5 +19,5 @@ export default function DashboardLayout({
                 {children}
             </main>
         </SidebarProvider>
-    )
+    );
 }
