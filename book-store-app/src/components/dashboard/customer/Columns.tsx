@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { toast } from "react-toastify";
-import { ColumnDef } from "@tanstack/react-table"
+import { ColumnDef } from "@tanstack/react-table";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { MoreHorizontal } from "lucide-react"
+import { MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
     AlertDialogDescription,
     AlertDialogTrigger,
@@ -22,10 +22,11 @@ import {
     AlertDialogContent,
     AlertDialogFooter,
     AlertDialogHeader,
-    AlertDialogTitle
+    AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { deleteCustomer } from "@/app/dashboard/customer/customer";
 import { Customer } from "@/types/index";
+import { useRouter } from "next/navigation";
 
 // client component
 export const columns: ColumnDef<Customer>[] = [
@@ -60,7 +61,8 @@ export const columns: ColumnDef<Customer>[] = [
     {
         id: "actions",
         cell: ({ row }) => {
-            const customer = row.original
+            const customer = row.original;
+            const router = useRouter();
             const queryClient = useQueryClient();
             const { mutate, isPending: Deleting } = useMutation({
                 mutationFn: deleteCustomer,
@@ -80,12 +82,20 @@ export const columns: ColumnDef<Customer>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(customer.id.toString())}
+                            onClick={() =>
+                                navigator.clipboard.writeText(customer.id.toString())
+                            }
                         >
                             Copy Book ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Edit Book</DropdownMenuItem>
+                        <DropdownMenuItem
+                            onClick={() =>
+                                router.push(`/dashboard/customer/${customer.id}`)
+                            }
+                        >
+                            Edit Book
+                        </DropdownMenuItem>
                         <AlertDialog>
                             <AlertDialogTrigger asChild>
                                 <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
@@ -101,7 +111,10 @@ export const columns: ColumnDef<Customer>[] = [
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction onClick={() => mutate(customer.id)} disabled={Deleting}>
+                                    <AlertDialogAction
+                                        onClick={() => mutate(customer.id)}
+                                        disabled={Deleting}
+                                    >
                                         Continue
                                     </AlertDialogAction>
                                 </AlertDialogFooter>
@@ -109,7 +122,7 @@ export const columns: ColumnDef<Customer>[] = [
                         </AlertDialog>
                     </DropdownMenuContent>
                 </DropdownMenu>
-            )
+            );
         },
     },
-]
+];
