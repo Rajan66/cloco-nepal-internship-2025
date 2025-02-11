@@ -16,7 +16,6 @@ import { items } from '../common/header/list/items';
 
 export default function AppSidebar() {
 
-
     return (
         <Sidebar>
             <SidebarHeader className="flex gap-4 flex-row items-center">

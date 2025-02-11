@@ -1,5 +1,6 @@
 import { Author } from "@/types/index";
 
+// TODO where to put the apis folder ( inside actions/api? )
 export const getAuthor = async (): Promise<Author[]> => {
   try {
     const response = await fetch("http://localhost:5000/authors");

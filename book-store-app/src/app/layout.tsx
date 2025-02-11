@@ -1,17 +1,20 @@
-import type { Metadata } from "next";
+// This is the root layout 
+import type { Metadata } from "next"; // built-in import 1st
 import { Poppins, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import QueryProvider from "@/components/providers/QueryProvider";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify"; // third-party import 2nd
 
+import { ThemeProvider } from "@/components/providers/ThemeProvider"; // custom import 3rd 
+import QueryProvider from "@/components/providers/QueryProvider";
+
+import "./globals.css"; // css import last
+
+// function comment 
 const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-poppins',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 });
-
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",

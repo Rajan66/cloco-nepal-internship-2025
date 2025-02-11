@@ -11,7 +11,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { deleteCustomer } from "@/api/customer";
+import { deleteCustomer } from "@/app/dashboard/customer/customer";
 
 // client component
 export const columns: ColumnDef<Customer>[] = [

@@ -1,17 +1,17 @@
+import React from 'react'
 import DataTable from '@/components/common/DataTable'
 import { columns } from "@/components/dashboard/author/Columns"
+import { useGetAuthor } from '@/hooks/authorQueries'
 import { Author } from '@/types/index'
-import React from 'react'
-import { getAuthor } from '@/api/author'
 
 const page = async () => {
 
-  const data = await getAuthor()
+  const { data, isLoading } = useGetAuthor();
   console.log(data)
 
   return (
     <div className="mx-auto md:mx-10 py-10 ">
-      <DataTable<Author, string[]> columns={columns} data={data} />
+      <DataTable<Author, string[]> columns={columns} data={data ?? []} isLoading={isLoading} />
     </div>
   )
 }

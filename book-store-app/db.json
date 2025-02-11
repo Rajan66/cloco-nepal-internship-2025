@@ -1,36 +1,6 @@
 {
   "books": [
     {
-      "id": "732",
-      "isbn": "3653255805",
-      "title": "Result center current.",
-      "author": {
-        "id": 29,
-        "firstname": "David",
-        "lastname": "Ewing",
-        "bio": "Avoid debate threat final what. Of work more you black. Two enter idea religious kind hope ball child."
-      },
-      "description": "Daughter gas possible far bill. Social inside this her tax.",
-      "pageCount": 360,
-      "price": 27.91,
-      "publishedDate": "2001-11-15"
-    },
-    {
-      "id": "843",
-      "isbn": "1799764705",
-      "title": "Almost that.",
-      "author": {
-        "id": 80,
-        "firstname": "Travis",
-        "lastname": "Daniels",
-        "bio": "Method town the medical time agency. Build eight game should perhaps necessary only. Discussion may decision defense similar. Young stay ready world."
-      },
-      "description": "General interesting security allow. Me sure admit door analysis per cost. Write population conference deal company say.",
-      "pageCount": 500,
-      "price": 30.2,
-      "publishedDate": null
-    },
-    {
       "id": "343",
       "isbn": "5464455866",
       "title": "World still speak.",

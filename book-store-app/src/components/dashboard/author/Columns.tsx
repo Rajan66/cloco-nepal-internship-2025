@@ -14,6 +14,7 @@ import {
 import { deleteAuthor } from "@/api/author";
 import { AlertDialogDescription, AlertDialogTrigger, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 
+// where do i put components of pages inside dashboard
 export const columns: ColumnDef<Author>[] = [
     {
         accessorKey: "id",
