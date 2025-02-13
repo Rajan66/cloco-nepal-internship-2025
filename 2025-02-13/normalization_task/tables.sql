@@ -7,8 +7,8 @@
 
 CREATE TABLE orders (
 	 id serial NOT NULL PRIMARY KEY,
-	 order_id int REFERENCES orders(id) NOT NULL,
-	 order_item varchar(50));
+	 customer_id int REFERENCES customers(id) NOT NULL,
+	 order_date DATE
 );
 
 CREATE TABLE order_items (
