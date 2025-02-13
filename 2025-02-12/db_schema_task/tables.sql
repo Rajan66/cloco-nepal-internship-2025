@@ -70,7 +70,7 @@ CREATE TABLE books (
 	page_count int NOT NULL CHECK (page_count > 0),
 	stock_quantity int NOT NULL DEFAULT 0 CHECK (stock_quantity >= 0),
 	price DECIMAL (10,2) NOT NULL CHECK (price > 0.00),
-	published_date Date NULL,
+	published_date Date NULL CHECK (published_date < CURRENT_DATE),
 	is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -80,7 +80,7 @@ CREATE TABLE books (
 -- 6. Categories
 CREATE TABLE categories (
 	category_id serial PRIMARY KEY NOT NULL,
-	name varchar(50) NOT NULL,
+	name varchar(50) UNIQUE NOT NULL,
 	description TEXT NULL,
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -154,12 +154,12 @@ CREATE TABLE payments (
 CREATE TABLE shipments (
 	shipment_id serial PRIMARY KEY NOT NULL,
 	user_id int NOT NULL REFERENCES users (user_id) ON DELETE CASCADE,
-	order_id int NOT NULL REFERENCES orders (order_id) ON DELETE CASCADE,
+	order_id int UNIQUE NOT NULL REFERENCES orders (order_id) ON DELETE CASCADE,
 	shipment_date TIMESTAMPTZ NOT NULL,
 	estimated_date TIMESTAMPTZ NOT NULL,
 	delivery_date TIMESTAMPTZ NULL,
 	status varchar(50) NOT NULL DEFAULT 'waiting for pickup' 
 	CHECK (status IN ('waiting for pickup','in transit', 'delivered')),
 	created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+	updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
 );
