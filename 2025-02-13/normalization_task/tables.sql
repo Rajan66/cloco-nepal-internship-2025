@@ -41,22 +41,12 @@ CREATE TABLE students_courses (
 
 CREATE TABLE employees (
 	id serial PRIMARY KEY,
-	employee_name varchar(50) NOT NULL
+	employee_name varchar(50) NOT NULL,
+	department_id INT REFERENCES departments (id)
 );
 
 CREATE TABLE departments (
 	id serial PRIMARY KEY,
-	department_name varchar(50) NOT NULL
-);
-
-CREATE TABLE managers (
-	id serial PRIMARY KEY,
-	manager_name varchar(50) NOT NULL,
-	department_id int REFERENCES departments(id)
-);
-
-CREATE TABLE employees_managers (
-	id serial PRIMARY KEY,
-	employee_id INT REFERENCES employees (id),
-	department_id INT REFERENCES departments (id)	
+	department_name varchar(50) NOT NULL,
+	manager_name varchar(50) NOT NULL
 );
