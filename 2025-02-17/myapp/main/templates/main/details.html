@@ -10,12 +10,25 @@
 
 <body>
     <a href="{% url 'main:index' %}">Go to home</a>
-    <p>{{question.question_text}}</p>
-    <ul>
-        {% for choice in question.choice_set.all %}
-        <li>{{choice.choice_text}} {{choice.vote}}</li>
-        {% endfor %}
-    </ul>
+    <form action="{% url 'main:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>
+                <h1>{{ question.question_text }}</h1>
+            </legend>
+            {% if error_message %}
+            <p>{{error_message}}</p>
+            {% endif %} {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" value="{{choice.id}}" />
+            <label for="choice{{forloop.counter}}">{{choice.choice_text}}</label>
+            <!-- It will look like -->
+            <!-- choice1 -->
+            <!-- choice2 -->
+            <!-- choice3 -->
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="Vote" />
+    </form>
 </body>
 
 </html>

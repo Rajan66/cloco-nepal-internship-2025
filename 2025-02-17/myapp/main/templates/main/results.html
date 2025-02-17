@@ -9,7 +9,18 @@
 </head>
 
 <body>
-    <p>You're getting the result for question: {{question}}</p>
+    <h1>{{ question.question_text }}</h1>
+
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>
+            {{choice.choice_text}} -- {{choice.votes}}
+            <span>vote{{ choice.votes|pluralize }}</span>
+        </li>
+        {% endfor%}
+    </ul>
+
+    <a href="{% url 'main:details' question.id %}">Vote again?</a>
 </body>
 
 </html>

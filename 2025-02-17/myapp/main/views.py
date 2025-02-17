@@ -1,7 +1,9 @@
-from django.http import Http404, HttpResponse
+from django.db.models import F
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 
-from .models import Question
+from .models import Choice, Question
 
 
 def index(request):
@@ -25,5 +27,18 @@ def results(request, question_id):
 
 
 def vote(request, question_id):
-    response = "You're voting on question:"
-    return HttpResponse(f"{response} {question_id}")
+    question = get_object_or_404(Question, pk=question_id)
+    try:
+        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+    except (KeyError, Choice.DoesNotExist):
+        return render(
+            request,
+            "main/detail.html",
+            {"question": question, "error_message": "You didn't select a choice"},
+        )
+    else:
+        selected_choice.votes = F("votes") + 1
+        selected_choice.save()
+        # args expects a tuple so, we have to put ',' even if there is one element
+        # reverse is used to redirect to a view without hardcoding the url
+        return HttpResponseRedirect(reverse("main:results", args=(question.id,)))
