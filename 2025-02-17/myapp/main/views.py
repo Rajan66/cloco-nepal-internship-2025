@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Choice, Question
+from .models import Choice, Question, User
 
 # def index(request):
 #     # orders by recent first and only shows the first 5 items
@@ -45,7 +45,7 @@ def vote(request, question_id):
 
 
 class IndexView(generic.ListView):
-    template_name = "mains/index.html"
+    template_name = "main/index.html"
     context_object_name = "latest_question_list"
 
     def get_queryset(self):
@@ -60,3 +60,16 @@ class DetailsView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = "main/results.html"
+
+
+# easy way to do it
+# class UsersView(generic.ListView):
+#     model = User
+#     template_name = "main/users.html"
+#     context_object_name = "users"
+
+
+# Function based
+def users(request):
+    users = User.objects.all()
+    return render(request, "main/users.html", context={"users": users})

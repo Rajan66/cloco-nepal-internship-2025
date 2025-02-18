@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    {% if not user%}
+    <p>No users found..</p>
+    {% endif %}
+    <h2>List of all users</h2>
+    <ol>
+        {% for user in users %}
+        <li>
+            <h2>User info</h2>
+            <ul>
+                <li>{{user.first_name}}</li>
+                <li>{{user.last_name}}</li>
+                <li>{{user.email}}</li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>
