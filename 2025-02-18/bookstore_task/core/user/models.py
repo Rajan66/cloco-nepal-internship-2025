@@ -1,12 +1,21 @@
+from core.choices.user import UserStatusChoice
 from django.contrib.auth import get_user_model
 from django.db import models
 
 User = get_user_model()
 
+
 # Create your models here.
+class AbstractModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    # research about meta
+    class Meta:
+        abstract = True
 
 
-class Address(models.Model):
+class Address(AbstractModel):
     country = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
@@ -21,19 +30,15 @@ class Address(models.Model):
 #     pass
 
 
-class Author(models.Model):
+class Author(AbstractModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField()
 
     def __str__(self):
-        return self.username
+        return self.user.username
 
 
-class Publisher(models.Model):
-    # class StatusChoice(models.TextChoices):
-    #     active = "active", _("active")
-    #     inactive = "inactive", _("inactive")
-
+class Publisher(AbstractModel):
     name = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=10, unique=True)
@@ -41,7 +46,7 @@ class Publisher(models.Model):
     address = models.OneToOneField(
         Address, related_name="address", on_delete=models.CASCADE, null=True
     )
-    # status = models.CharField(choices=StatusChoice.choices, default=StatusChoice.active)
+    status = models.CharField(choices=UserStatusChoice, default=UserStatusChoice.active)
 
     def __str__(self):
         return self.name

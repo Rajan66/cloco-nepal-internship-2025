@@ -1,14 +1,10 @@
 from django.db import models
-from user.models import Author, Publisher, User
-
+from user.models import AbstractModel, Author, Publisher, User
 
 # Create your models here.
-class AbstractModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
 
 
-class Category(models.Model):
+class Category(AbstractModel):
     title = models.CharField(max_length=100, unique=True)
     description = models.TextField()
 
@@ -16,7 +12,7 @@ class Category(models.Model):
         return self.title
 
 
-class Book(models.Model):
+class Book(AbstractModel):
     title = models.CharField(max_length=255, unique=True)
     publisher = models.ForeignKey(
         Publisher, related_name="publisher", on_delete=models.CASCADE, null=True
@@ -35,7 +31,7 @@ class Book(models.Model):
         return self.title
 
 
-class Review(models.Model):
+class Review(AbstractModel):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     rating = models.IntegerField()  # TODO add 1 to 5 validation or something
