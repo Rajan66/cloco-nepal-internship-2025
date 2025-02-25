@@ -1,7 +1,6 @@
 from django.db import models
-from user.models import AbstractModel, Author, Publisher, User
-
-# Create your models here.
+from user.models import Author, Publisher, User
+from core.base.models import AbstractModel
 
 
 class Category(AbstractModel):

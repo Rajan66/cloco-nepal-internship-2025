@@ -1,19 +1,11 @@
-from core.choices.user import UserStatusChoice
-from django.contrib.auth import get_user_model
+from core.base.choices import UserStatusChoice
+from core.base.models import AbstractModel
+from django.contrib.auth.models import User
 from django.db import models
 
-User = get_user_model()
-
-
-# Create your models here.
-class AbstractModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
-    updated_at = models.DateTimeField(auto_now_add=True, null=True)
-
-    # research about meta
-    class Meta:
-        abstract = True
-
+# short uuid
+# core/base/choices.py
+# core/base/models.py or core/base/choices/... or core/base/models/...
 
 class Address(AbstractModel):
     country = models.CharField(max_length=50)
@@ -46,7 +38,8 @@ class Publisher(AbstractModel):
     address = models.OneToOneField(
         Address, related_name="address", on_delete=models.CASCADE, null=True
     )
-    status = models.CharField(choices=UserStatusChoice, default=UserStatusChoice.active)
+    status = models.CharField(choices=UserStatusChoice,
+                              default=UserStatusChoice.active)
 
     def __str__(self):
         return self.name

@@ -1,5 +1,6 @@
-from book.models import AbstractModel, Book
-from core.choices.order import (
+from core.base.models import AbstractModel
+from book.models import Book
+from core.base.choices import (
     OrderStatusChoice,
     PaymentMethodChoice,
     PaymentStatusChoice,
