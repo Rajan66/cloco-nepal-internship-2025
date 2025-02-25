@@ -1,0 +1,22 @@
+[project]
+name = "book-store-template-task"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Rajan66",email = "rajanmaharjan042@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django (>=5.1.6,<6.0.0)",
+    "psycopg (>=3.2.5,<4.0.0)",
+    "environs (>=14.1.1,<15.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "book_store_template_task", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,30 +1,30 @@
 from django.db import models
 
-class OrderStatusChoice(models.TextChoice):
+class OrderStatusChoice(models.TextChoices):
     pending = "pending"
     unfulfilled = "unfulfilled"
     fulfilled = "fulfilled"
     cancelled = "cancelled"
 
 
-class PaymentStatusChoice(models.TextChoice):
+class PaymentStatusChoice(models.TextChoices):
     paid = "paid"
     pending = "unpaid"
 
 
-class PaymentMethodChoice(models.TextChoice):
+class PaymentMethodChoice(models.TextChoices):
     cash = "cash"
     esewa = "esewa"
     paypal = "paypal"
     card = "card"
 
 
-class ShipmentStatusChoice(models.TextChoice):
+class ShipmentStatusChoice(models.TextChoices):
     waiting_for_pickup = "waiting_for_pickup"
     in_transit = "in_transit"
     delivered = "delivered"
 
 
-class UserStatusChoice(models.TextChoice):
+class UserStatusChoice(models.TextChoices):
     active = "active"
     inactive = "inactive"

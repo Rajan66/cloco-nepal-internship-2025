@@ -25,7 +25,7 @@ class Order(AbstractModel):
     quantity = models.IntegerField()
     total_price = models.DecimalField(decimal_places=2, max_digits=10)
     status = models.CharField(
-        choices=OrderStatusChoice, default=OrderStatusChoice.active
+        choices=OrderStatusChoice, default=OrderStatusChoice.unfulfilled
     )
 
     def __str__(self):
@@ -46,7 +46,8 @@ class Payment(AbstractModel):
     order = models.OneToOneField(Order, on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     amount = models.DecimalField(decimal_places=2, max_digits=10)
-    delivery_charge = models.DecimalField(decimal_places=2, max_digits=10, null=True)
+    delivery_charge = models.DecimalField(
+        decimal_places=2, max_digits=10, null=True)
     payment_method = models.CharField(max_length=10)
     status = models.CharField(
         choices=PaymentStatusChoice, default=PaymentStatusChoice.pending
@@ -66,7 +67,7 @@ class Shipment(AbstractModel):
     estimated_date = models.DateTimeField()
     delivery_date = models.DateTimeField(null=True)
     status = models.CharField(
-        choices=ShipmentStatusChoice, default=ShipmentStatusChoice.pending
+        choices=ShipmentStatusChoice, default=ShipmentStatusChoice.waiting_for_pickup
     )
 
     def __str__(self):
