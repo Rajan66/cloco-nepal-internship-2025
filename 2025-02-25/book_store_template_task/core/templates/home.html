@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+
+{% block index %}
+<main>
+    <section>
+        Book form
+
+        {% if form.errors %}
+        <ul>
+            {% for field, error_list in form.errors.items %}
+            {% for error in error_list %}
+            <li>{{ field }}: {{ error }}</li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="/book/home/" method="post">
+            {% csrf_token %}
+            <div>
+                <label>Title</label>
+                <input type="text" name="title" id="title" />
+            </div>
+            <div>
+                <label>ISBN</label>
+                <input type="text" name="isbn" id="isbn" />
+            </div>
+            <div>
+                <label>Description</label>
+                <input type="text" name="description" id="description" />
+            </div>
+            <div>
+                <label>Price</label>
+                <input type="number" name="price" id="price" />
+            </div>
+            <div>
+                <label>Page Count</label>
+                <input type="number" name="page_count" id="page_count" />
+            </div>
+            <select name="category" id="category">
+
+                {% for category in  categories %}
+                <option value="{{ category.id }}">{{ category.title }}</option>
+                {% endfor %}
+
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        <!-- <form action="/book/home/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form> -->
+    </section>
+</main>
+{% endblock %}

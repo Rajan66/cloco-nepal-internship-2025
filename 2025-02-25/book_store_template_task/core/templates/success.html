@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block index %}
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock index %}
