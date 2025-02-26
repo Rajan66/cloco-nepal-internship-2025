@@ -13,8 +13,7 @@ class Category(BaseModel):
 class Book(BaseModel):
     # TODO doesn't let me migrate unless it's null
     # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    category = models.ManyToManyField(
-        Category,  null=True)
+    category = models.ManyToManyField(Category)
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     isbn = models.CharField(max_length=30, unique=True)

@@ -1,56 +1,24 @@
-{% extends 'index.html' %}
-
-{% block index %}
-<main>
-    <section>
-        Book form
-
-        {% if form.errors %}
-        <ul>
-            {% for field, error_list in form.errors.items %}
-            {% for error in error_list %}
-            <li>{{ field }}: {{ error }}</li>
-            {% endfor %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-
-        <form action="/book/home/" method="post">
-            {% csrf_token %}
-            <div>
-                <label>Title</label>
-                <input type="text" name="title" id="title" />
-            </div>
-            <div>
-                <label>ISBN</label>
-                <input type="text" name="isbn" id="isbn" />
-            </div>
-            <div>
-                <label>Description</label>
-                <input type="text" name="description" id="description" />
-            </div>
-            <div>
-                <label>Price</label>
-                <input type="number" name="price" id="price" />
-            </div>
-            <div>
-                <label>Page Count</label>
-                <input type="number" name="page_count" id="page_count" />
-            </div>
-            <select name="category" id="category">
-
-                {% for category in  categories %}
-                <option value="{{ category.id }}">{{ category.title }}</option>
-                {% endfor %}
-
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-        <!-- <form action="/book/home/" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
-        </form> -->
-    </section>
-</main>
-{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+<link rel="stylesheet" href="{% static 'css/books/styles.css' %}">
+{% if books %}
+<div class="book-list-container">
+    <h2>Book List</h2>
+    <ul class="book-list">
+        {% for book in books %}
+        <li class="book-item">
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-isbn">ISBN: {{ book.isbn }}</div>
+            <div class="book-description">{{ book.description }}</div>
+            <div class="book-published-date">Published: {{ book.published_date }}</div>
+            <div class="book-page-count">Pages: {{ book.page_count }}</div>
+            <div class="book-price">Price: ${{ book.price }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+<p>No books available.</p>
+{% endif %}
+{% endblock base %}
