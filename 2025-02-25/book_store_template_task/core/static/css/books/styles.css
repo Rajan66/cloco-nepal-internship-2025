@@ -1,0 +1,48 @@
+.book-list-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.book-list-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.book-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.book-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.book-isbn,
+.book-description,
+.book-published-date,
+.book-page-count,
+.book-price {
+    font-size: 16px;
+    margin: 4px 0;
+    color: #555;
+}
+
+.no-books {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
