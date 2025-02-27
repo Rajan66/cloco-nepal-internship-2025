@@ -32,11 +32,9 @@ class CategoryAdmin(admin.ModelAdmin):
     # TODO fieldsets is for change form and add_fieldsets is for add form
     # but, add form also uses the `fieldsets` instead of `add_fieldsets`
     # works for the user form somehow
+    # doesn't work on our custom models, only UserAdmin model has the add_fieldsets
     fieldsets = (
         (None, {"fields": ("title", "description")}),
-    )
-    add_fieldsets = (
-        (None, {"fields": ("title",)})
     )
     search_fields = ("title",)
     ordering = ("title",)

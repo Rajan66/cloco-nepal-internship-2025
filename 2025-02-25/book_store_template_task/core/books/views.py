@@ -39,7 +39,6 @@ def book_form(request):
                 published_date=published_date,
                 # category=category,
             )
-            print(book)
             book.save()
 
             messages.success(
@@ -48,3 +47,5 @@ def book_form(request):
     else:
         form = BookCreationForm()
     return render(request, "book_form.html", {"form": form, "categories": categories})
+
+
