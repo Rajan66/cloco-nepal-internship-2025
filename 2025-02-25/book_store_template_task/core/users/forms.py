@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, AuthenticationForm
 from django import forms
 
 
@@ -27,3 +27,13 @@ class AuthorChangeForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = ("bio", "birth_date")
+
+
+class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = ('email', 'password1', 'password2')
+
+
+class UserLoginForm(AuthenticationForm):
+    pass
