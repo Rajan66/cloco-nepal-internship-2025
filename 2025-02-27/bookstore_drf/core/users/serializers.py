@@ -17,7 +17,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     # password = serializers.CharField(write_only=True)
-
+    
     class Meta:
         model = User
         fields = ["id", "username",  "first_name",
