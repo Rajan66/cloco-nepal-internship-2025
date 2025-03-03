@@ -29,7 +29,7 @@ class UserDetail(APIView):
     def get_object(self, pk):
         try:
             return User.objects.get(pk=pk)
-        except:
+        except Exception:
             raise Http404
 
     def get(self, request, pk):

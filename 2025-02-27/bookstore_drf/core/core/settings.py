@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_extensions",
     "books",
+    "booksv2",
     "users",
     "orders",
 ]
@@ -55,6 +56,11 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'core.base.pagination.StandardPagination',
+    'PAGE_SIZE': 10
+}
 
 ROOT_URLCONF = "core.urls"
 
