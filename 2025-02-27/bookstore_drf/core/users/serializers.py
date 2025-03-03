@@ -1,6 +1,8 @@
-from rest_framework import serializers
-from users.models import Author, Address
 from django.contrib.auth.models import User
+from rest_framework import serializers
+
+from users.models import Address, Author
+
 
 # use serializers
 class AddressSerializer(serializers.ModelSerializer):
@@ -17,8 +19,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     # password = serializers.CharField(write_only=True)
-    
+
     class Meta:
         model = User
-        fields = ["id", "username",  "first_name",
-                  "last_name", "email", "is_active"]
+        fields = ["id", "username", "first_name", "last_name", "email", "is_active"]

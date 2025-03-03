@@ -1,16 +1,16 @@
+from django.contrib.auth.models import User
 from django.http import Http404
 from rest_framework import status
-from rest_framework.views import APIView
 from rest_framework.response import Response
-
-from django.contrib.auth.models import User
+from rest_framework.views import APIView
 
 from users.models import Address, Author
-from users.serializers import AddressSerializer, UserSerializer, AuthorSerializer
+from users.serializers import AddressSerializer, AuthorSerializer, UserSerializer
+
 
 # selectors.py and services.py
 class UserList(APIView):
-    def get(self, request, format=None):
+    def get(self, request):
         users = User.objects.all()
         if not users.exists():
             return Response([], status=status.HTTP_200_OK)
@@ -114,7 +114,7 @@ class AuthorDetail(APIView):
     def get_object(self, pk):
         try:
             return Author.objects.get(pk=pk)
-        except:
+        except Exception:
             raise Http404
 
     def get(self, request, pk):
