@@ -1,8 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import User
-from users.models import Author, Publisher
-from core.base.models import AbstractModel
 from core.base.choices import ReviewRatingChoice
+from core.base.models import AbstractModel
+from django.contrib.auth.models import User
+from django.db import models
+from users.models import Author, Publisher
 
 
 class Category(AbstractModel):
@@ -36,7 +36,8 @@ class Review(AbstractModel):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     rating = models.IntegerField(
-        choices=ReviewRatingChoice, default=ReviewRatingChoice.ONE)
+        choices=ReviewRatingChoice, default=ReviewRatingChoice.ZERO
+    )
 
     def __str__(self):
         return f"{self.id} | {self.book.title}"
