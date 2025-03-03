@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class OrderStatusChoice(models.TextChoices):
     PENDING = "PENDING"
     UNFULFILLED = "UNFULFILLED"
@@ -28,3 +29,11 @@ class ShipmentStatusChoice(models.TextChoices):
 class UserStatusChoice(models.TextChoices):
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
+
+
+class ReviewRatingChoice(models.IntegerChoices):
+    ONE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
