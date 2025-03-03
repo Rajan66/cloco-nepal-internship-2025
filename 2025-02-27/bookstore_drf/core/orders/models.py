@@ -1,4 +1,3 @@
-from core.base.models import AbstractModel
 from books.models import Book
 from core.base.choices import (
     OrderStatusChoice,
@@ -6,6 +5,7 @@ from core.base.choices import (
     PaymentStatusChoice,
     ShipmentStatusChoice,
 )
+from core.base.models import AbstractModel
 from django.contrib.auth.models import User
 from django.db import models
 from users.models import Address
@@ -13,10 +13,10 @@ from users.models import Address
 
 class Order(AbstractModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    billing_address = models.OneToOneField(
+    billing_address = models.ForeignKey(
         Address, related_name="billing_address", on_delete=models.CASCADE, null=True
     )
-    shipping_address = models.OneToOneField(
+    shipping_address = models.ForeignKey(
         Address, related_name="shipping_address", on_delete=models.CASCADE, null=True
     )
     quantity = models.IntegerField()
@@ -31,8 +31,8 @@ class Order(AbstractModel):
 
 class OrderItem(AbstractModel):
     # pk = models.CompositePrimaryKey("order_id", "book_id")
-    order = models.OneToOneField(Order, on_delete=models.CASCADE, null=True)
-    book = models.OneToOneField(Book, on_delete=models.CASCADE, null=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField()
 
     def __str__(self):
@@ -43,8 +43,7 @@ class Payment(AbstractModel):
     order = models.OneToOneField(Order, on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     amount = models.DecimalField(decimal_places=2, max_digits=10)
-    delivery_charge = models.DecimalField(
-        decimal_places=2, max_digits=10, null=True)
+    delivery_charge = models.DecimalField(decimal_places=2, max_digits=10, null=True)
     payment_method = models.CharField(max_length=10)
     status = models.CharField(
         choices=PaymentStatusChoice, default=PaymentStatusChoice.PENDING
@@ -54,7 +53,7 @@ class Payment(AbstractModel):
     )
 
     def __str__(self):
-        return f"{self.id} {self.user.username} {self.book.order}"
+        return f"{self.id} | {self.user.username} | {self.order.id} | ${self.amount}"
 
 
 class Shipment(AbstractModel):
