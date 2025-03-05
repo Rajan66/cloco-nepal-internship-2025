@@ -1,14 +1,55 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, update_last_login
 from django.http import Http404
 from rest_framework import status
+from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from users.models import Address, Author
-from users.serializers import AddressSerializer, AuthorSerializer, UserSerializer
+from users.serializers import (
+    AddressSerializer,
+    AuthorSerializer,
+    UserLoginSerializer,
+    UserRegistrationSerializer,
+    UserSerializer,
+)
 
 
 # selectors.py and services.py
+class UserLoginView(APIView):
+    def post(self, request):
+        serializer = UserLoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data["user"]
+        update_last_login(None, user)
+        token, created = Token.objects.get_or_create(user=user)
+        message = {
+            "status": status.HTTP_200_OK,
+            "token": str(token.key),
+            "user_id": user.pk,
+            "email": user.email,
+        }
+
+        return Response(message, status=status.HTTP_200_OK)
+
+
+class UserRegistrationView(APIView):
+    def post(self, request):
+        serializer = UserRegistrationSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        user = serializer.instance
+
+        token, created = Token.objects.get_or_create(user=user)
+        message = {
+            "status": status.HTTP_201_CREATED,
+            "token": str(token.key),
+            "user_id": user.id,
+            "email": user.email,
+        }
+        return Response(message, status=status.HTTP_201_CREATED)
+
+
 class UserList(APIView):
     def get(self, request):
         users = User.objects.all()

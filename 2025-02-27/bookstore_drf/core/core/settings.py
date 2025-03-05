@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "rest_framework_swagger",
+    "rest_framework.authtoken",
+    # "rest_framework_swagger",
     "django_extensions",
     "books",
     "booksv2",
@@ -59,8 +60,10 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'core.base.pagination.StandardPagination',
-    'PAGE_SIZE': 10
+    "DEFAULT_PAGINATION_CLASS": "core.utils.pagination.StandardPagination",
+    "PAGE_SIZE": 10,
+    "EXCEPTION_HANDLER": "core.utils.exception.custom_exception_handler",
+    "NON_FIELD_ERRORS_KEY": "errors",
 }
 
 ROOT_URLCONF = "core.urls"
@@ -116,6 +119,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+# AUTH_USER_MODEL = "users.CustomUser"
 
 
 # Internationalization
