@@ -1,126 +1,98 @@
-"use client";
-import React from "react";
-import { useRouter } from "next/navigation";
-
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { AuthorSchema, TAuthor } from "@/schemas/authorSchema";
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { Controller, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+    SelectGroup,
+} from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { AuthorSchema, TAuthor } from '@/schemas/authorSchema';
+import { useMutation } from '@tanstack/react-query';
+import { createAuthor } from '../actions/author';
+import { AxiosError } from 'axios';
+import { useGetUsers } from '@/hooks/userQueries';
+import { User } from '@/types';
 
 const FormAuthor = () => {
     const router = useRouter();
+    const { data: users, isLoading } = useGetUsers();
 
-    // react-hook-form manages the state so we don't need handleChange and value like in vanilla html form
     const {
         register,
         handleSubmit,
+        control,
         formState: { errors },
-        reset,
     } = useForm<TAuthor>({
         resolver: zodResolver(AuthorSchema),
-        mode: "onBlur",
-        // onBlur throws a validation error when the user leaves the field
-        // onChange throws a validation error when the user is typing
-        // default is onSubmit
+        mode: 'onBlur',
     });
 
-    const createAuthor = async (data: TAuthor) => {
-        try {
-            const response = await fetch("http://localhost:5000/authors", {
-                method: "POST",
-                body: JSON.stringify(data),
-            });
-            if (!response.ok) {
-                throw new Error(`Error: ${response.text}`);
+    const { mutate } = useMutation({
+        mutationFn: createAuthor,
+        onSettled: (apiData: any) => {
+            if (apiData.status === 201) {
+                toast.success('Author updated successfully');
+                router.push('/dashboard/author');
             }
-            const result = response.json();
-            return result;
-        } catch (error) {
-            throw error;
-        }
-    };
+        },
+        onError: (apiData: AxiosError) => {
+            toast.error('Author creation failed');
+            toast.error(`${apiData.message}`);
+        },
+    });
+
     const onSubmit = async (data: TAuthor) => {
-        try {
-            const result = await createAuthor(data);
-            toast.success("Author created succesfully");
-            console.log(result);
-            reset();
-            router.push("/dashboard/author");
-        } catch (error) {
-            toast.error(`Something went wrong`);
-            console.error("Form submit error:", error);
-        }
+        console.log(data);
+        const finalData = {
+            user_id: Number(data.user_id), // Ensure user_id is a number
+            bio: data.bio,
+        };
+        mutate(finalData);
     };
-    console.log(errors);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="firstname">Firstname:*</Label>
-                <Input
-                    id="firstname"
-                    type="text"
-                    placeholder="Enter firstname..."
-                    {...register("firstname")}
+            <div className="flex flex-col gap-2">
+                <Label htmlFor="user_id">User:*</Label>
+                <Controller
+                    name="user_id"
+                    control={control}
+                    render={({ field }) => (
+                        <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                            value={field.value}
+                        >
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Select a user" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    {!isLoading &&
+                                        users?.map((user: User) => (
+                                            <SelectItem
+                                                key={user.id}
+                                                value={user.id.toString()}
+                                            >
+                                                {user.username}
+                                            </SelectItem>
+                                        ))}
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                    )}
                 />
-                {errors.firstname && (
-                    <p className="text-red-500 text-sm">{errors.firstname.message}</p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="lastname">Lastname:*</Label>
-                <Input
-                    id="lastname"
-                    type="text"
-                    placeholder="Enter lastname..."
-                    {...register("lastname")}
-                />
-                {errors.lastname && (
-                    <p className="text-red-500 text-sm">{errors.lastname.message}</p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="email">Email:*</Label>
-                <Input
-                    id="email"
-                    type="text"
-                    placeholder="Enter email..."
-                    {...register("email")}
-                />
-                {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email.message}</p>
-                )}
-            </div>
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="address">Address:</Label>
-                <Input
-                    id="address"
-                    type="text"
-                    placeholder="Enter address..."
-                    {...register("address")}
-                />
-                {errors.address && (
-                    <p className="text-red-500 text-sm">{errors.address?.message}</p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="phone">Phone:</Label>
-                <Input
-                    id="phone"
-                    type="text"
-                    placeholder="Enter phone..."
-                    {...register("phone")}
-                />
-                {errors.phone && (
-                    <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                {errors.user_id && (
+                    <p className="text-red-500 text-sm">{errors.user_id.message}</p>
                 )}
             </div>
 
@@ -129,7 +101,7 @@ const FormAuthor = () => {
                 <Textarea
                     id="bio"
                     placeholder="Write a few words..."
-                    {...register("bio")}
+                    {...register('bio')}
                 />
                 {errors.bio && (
                     <p className="text-red-500 text-sm">{errors.bio?.message}</p>

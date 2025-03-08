@@ -1,24 +1,28 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2Icon } from "lucide-react";
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2Icon } from 'lucide-react';
 
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { AuthorSchema, TAuthor } from "@/schemas/authorSchema";
-import { useGetAuthor } from "@/hooks/authorQueries";
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { AuthorSchema, TAuthor } from '@/schemas/authorSchema';
+import { useGetAuthor } from '@/hooks/authorQueries';
+import { updateAuthor } from '@/features/author/actions/author';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const EditFormAuthor = () => {
     const router = useRouter();
-    const { id: authorId } = useParams();
+    const queryClient = useQueryClient();
+    const { id: id } = useParams();
+    const authorId = id?.toString();
 
-    const { data: authorData, isLoading } = useGetAuthor(Number(authorId));
+    const { data: authorData, isLoading } = useGetAuthor(authorId);
     const {
         register,
         handleSubmit,
@@ -28,23 +32,30 @@ const EditFormAuthor = () => {
     } = useForm<TAuthor>({
         resolver: zodResolver(AuthorSchema),
         defaultValues: {
-            firstname: authorData?.firstname,
-            lastname: authorData?.lastname,
-            email: authorData?.email,
-            address: authorData?.address,
-            phone: authorData?.phone,
+            user_id: authorData?.user.id,
             bio: authorData?.bio,
+        },
+    });
+
+    const {
+        data: response,
+        isPending,
+        mutate,
+    } = useMutation({
+        mutationFn: updateAuthor,
+        onSettled: (apiData: any) => {
+            if (apiData.status === 200) {
+                queryClient.invalidateQueries({ queryKey: ['author', authorId] });
+                queryClient.invalidateQueries({ queryKey: ['authors'] });
+                toast.success('Author updated successfully');
+            }
         },
     });
 
     useEffect(() => {
         if (authorData) {
-            setValue("firstname", authorData?.firstname ?? "");
-            setValue("lastname", authorData?.lastname ?? "");
-            setValue("email", authorData?.email ?? "");
-            setValue("address", authorData?.address ?? "");
-            setValue("phone", authorData?.phone ?? "");
-            setValue("bio", authorData?.bio ?? "");
+            setValue('user_id', authorData?.user.id ?? '');
+            setValue('bio', authorData?.bio ?? '');
         }
     }, [authorData]);
 
@@ -55,98 +66,23 @@ const EditFormAuthor = () => {
             </div>
         );
     }
-    const updateAuthor = async (data: TAuthor) => {
-        try {
-            const response = await fetch(`http://localhost:5000/authors/${authorId}`, {
-                method: "PUT",
-                body: JSON.stringify(data),
-            });
-            if (!response.ok) {
-                throw new Error(`Error: ${response.text}`);
-            }
-            console.log(response);
-            return response;
-        } catch (error) {
-            throw error;
-        }
-    };
 
     const onSubmit = async (data: TAuthor) => {
-        try {
-            const response = await updateAuthor(data);
-            toast.success("Author updated succesfully");
-            console.log(await response.json());
-            reset();
-            router.push("/dashboard/author");
-        } catch (error) {
-            toast.error(`Something went wrong`);
-            console.error("Form submit error:", error);
-        }
+        mutate({ id: authorId, data: data });
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
             <div className="flex flex-col gap-2 ">
-                <Label htmlFor="firstname">Firstname:*</Label>
+                <Label htmlFor="user">User:*</Label>
                 <Input
-                    id="firstname"
-                    type="text"
-                    placeholder="Enter firstname..."
-                    {...register("firstname")}
+                    id="user"
+                    type="number"
+                    placeholder="select an user..."
+                    {...register('user_id')}
                 />
-                {errors.firstname && (
-                    <p className="text-red-500 text-sm">{errors.firstname.message}</p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="lastname">Lastname:*</Label>
-                <Input
-                    id="lastname"
-                    type="text"
-                    placeholder="Enter lastname..."
-                    {...register("lastname")}
-                />
-                {errors.lastname && (
-                    <p className="text-red-500 text-sm">{errors.lastname.message}</p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="email">Email:*</Label>
-                <Input
-                    id="email"
-                    type="text"
-                    placeholder="Enter email..."
-                    {...register("email")}
-                />
-                {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email.message}</p>
-                )}
-            </div>
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="address">Address:</Label>
-                <Input
-                    id="address"
-                    type="text"
-                    placeholder="Enter address..."
-                    {...register("address")}
-                />
-                {errors.address && (
-                    <p className="text-red-500 text-sm">{errors.address?.message}</p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-2 ">
-                <Label htmlFor="phone">Phone:</Label>
-                <Input
-                    id="phone"
-                    type="text"
-                    placeholder="Enter phone..."
-                    {...register("phone")}
-                />
-                {errors.phone && (
-                    <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                {errors.user_id && (
+                    <p className="text-red-500 text-sm">{errors.user_id.message}</p>
                 )}
             </div>
 
@@ -155,7 +91,7 @@ const EditFormAuthor = () => {
                 <Textarea
                     id="bio"
                     placeholder="Write a few words..."
-                    {...register("bio")}
+                    {...register('bio')}
                 />
                 {errors.bio && (
                     <p className="text-red-500 text-sm">{errors.bio?.message}</p>

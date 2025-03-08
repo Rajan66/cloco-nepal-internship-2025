@@ -24,7 +24,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { deleteCustomer } from "@/app/dashboard/customer/customer";
+import { deleteCustomer } from "@/features/customer/actions/customer";
 import { Customer } from "@/types/index";
 import { useRouter } from "next/navigation";
 

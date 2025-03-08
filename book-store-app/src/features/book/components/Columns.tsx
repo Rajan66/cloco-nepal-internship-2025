@@ -24,7 +24,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { deleteBook } from "@/app/dashboard/book/book";
+import { deleteBook } from "@/features/book/actions/book";
 import { Book } from "@/types/index";
 import { useRouter } from "next/navigation";
 

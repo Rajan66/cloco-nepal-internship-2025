@@ -1,10 +1,10 @@
-"use client"
-import { toast } from "react-toastify";
-import { ColumnDef } from "@tanstack/react-table"
-import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { Delete, MoreHorizontal } from "lucide-react"
+'use client';
+import { toast } from 'react-toastify';
+import { ColumnDef } from '@tanstack/react-table';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
+import { Delete, MoreHorizontal } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu';
 import {
     AlertDialogDescription,
     AlertDialogTrigger,
@@ -22,53 +22,54 @@ import {
     AlertDialogContent,
     AlertDialogFooter,
     AlertDialogHeader,
-    AlertDialogTitle
-} from "@/components/ui/alert-dialog";
-import { deleteAuthor } from "@/app/dashboard/author/author";
-import { Author } from "@/types/index";
-import { useRouter } from "next/navigation";
+    AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
+import { deleteAuthor } from '@/features/author/actions/author';
+import { Author } from '@/types/index';
+import { useRouter } from 'next/navigation';
 // where do i put components of pages inside dashboard
 export const columns: ColumnDef<Author>[] = [
     {
-        accessorKey: "id",
-        header: "ID",
+        accessorKey: 'id',
+        header: 'ID',
     },
     {
-        accessorFn: (row: Author) => `${row.firstname} ${row.lastname}`, // to concatenate the firstname and lastname
-        header: "Name",
+        accessorFn: (row: Author) => `${row.user.username}`,
+        header: 'Username',
     },
     {
-        accessorKey: "email",
-        header: "Email",
+        accessorFn: (row: Author) => `${row.user.first_name} ${row.user.last_name}`, // to concatenate the firstname and lastname
+        header: 'Name',
     },
     {
-        accessorKey: "address",
-        header: "Address",
+        accessorFn: (row: Author) => `${row.user.email}`,
+        header: 'Email',
     },
     {
-        accessorKey: "phone",
-        header: "Phone",
+        accessorFn: (row: Author) =>
+            `${row.bio ? `${row.bio?.substring(0, 50)}...` : ''}`,
+        header: 'Bio',
     },
     {
-        accessorFn: (row: Author) => `${row.bio ? `${row.bio?.substring(0, 50)}...` : ""}`,
-        header: "Bio",
+        accessorFn: (row: Author) => {
+            const fixedDateStr = row.created_at.slice(0, 23) + 'Z';
+            const date = new Date(fixedDateStr);
+            return date.toLocaleDateString();
+        },
+        header: 'Created At',
     },
     {
-        accessorKey: "createdAt",
-        header: "Created At",
-    },
-    {
-        id: "actions",
+        id: 'actions',
         cell: ({ row }) => {
-            const author = row.original
+            const author = row.original;
             const router = useRouter();
 
             const queryClient = useQueryClient();
             const { mutate, isPending: Deleting } = useMutation({
                 mutationFn: deleteAuthor,
                 onSuccess: () => {
-                    toast.success("Author deleted successfully");
-                    queryClient.invalidateQueries({ queryKey: ["authors"] });
+                    toast.success('Author deleted successfully');
+                    queryClient.invalidateQueries({ queryKey: ['authors'] });
                 },
             });
 
@@ -83,16 +84,22 @@ export const columns: ColumnDef<Author>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(author.id.toString())}
+                            onClick={() =>
+                                navigator.clipboard.writeText(author.id.toString())
+                            }
                         >
                             Copy Author ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem onClick={() => router.push(`/dashboard/author/${author.id}`)}>Edit Author</DropdownMenuItem>
+                        <DropdownMenuItem
+                            onClick={() => router.push(`/dashboard/author/${author.id}`)}
+                        >
+                            Edit Author
+                        </DropdownMenuItem>
                         <AlertDialog>
                             <AlertDialogTrigger asChild>
                                 <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-                                    {Deleting ? "Deleting..." : "Delete Author"}
+                                    {Deleting ? 'Deleting...' : 'Delete Author'}
                                 </DropdownMenuItem>
                             </AlertDialogTrigger>
                             <AlertDialogContent>
@@ -104,7 +111,10 @@ export const columns: ColumnDef<Author>[] = [
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction onClick={() => mutate(author.id)} disabled={Deleting}>
+                                    <AlertDialogAction
+                                        onClick={() => mutate(author.id)}
+                                        disabled={Deleting}
+                                    >
                                         Continue
                                     </AlertDialogAction>
                                 </AlertDialogFooter>
@@ -112,7 +122,7 @@ export const columns: ColumnDef<Author>[] = [
                         </AlertDialog>
                     </DropdownMenuContent>
                 </DropdownMenu>
-            )
+            );
         },
     },
-]
+];
