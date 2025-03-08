@@ -1,4 +1,4 @@
-import { getCustomer, getCustomers } from "@/app/dashboard/customer/customer";
+import { getCustomer, getCustomers } from "@/features/customer/actions/customer";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetCustomers = () => {

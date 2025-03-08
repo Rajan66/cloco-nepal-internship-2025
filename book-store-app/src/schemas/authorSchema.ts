@@ -1,22 +1,12 @@
 // This is schema/types for form and field validation
-import { z } from "zod";
+import { z } from 'zod';
 
 export const AuthorSchema = z.object({
-  //   --- required fields ---
-  firstname: z
-    .string({ required_error: "Firstname is required" })
-    .min(1, { message: "Firstname is required" }),
-  lastname: z
-    .string({ required_error: "Lastname is required" })
-    .min(1, { message: "Lastname is required" }),
-  email: z
-    .string({ required_error: "Email is required" })
-    .min(1, { message: "Email is required" })
-    .email(),
-  //   --- optional fields ---
-  address: z.string().optional(),
-  phone: z.string().optional(),
-  bio: z.string().optional(),
+    //   --- required fields ---
+    user_id: z
+        .string({ required_error: 'User is required' })
+        .min(1, { message: 'User is required' }),
+    bio: z.string().optional(),
 });
 
 // export a Author Type with zodSchema

@@ -1,4 +1,4 @@
-import { getBooks, getBook } from "@/app/dashboard/book/book";
+import { getBooks, getBook } from "@/features/book/actions/book";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetBooks = () => {

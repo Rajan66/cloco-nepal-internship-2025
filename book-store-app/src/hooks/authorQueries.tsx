@@ -1,4 +1,4 @@
-import { getAuthors, getAuthor } from "@/app/dashboard/author/author";
+import { getAuthors, getAuthor } from "@/features/author/actions/author";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetAuthors = () => {
@@ -9,9 +9,9 @@ export const useGetAuthors = () => {
     return { data, isLoading };
 };
 
-export const useGetAuthor = (id?: number) => {
+export const useGetAuthor = (id?: string) => {
     const { data, isLoading } = useQuery({
-        queryKey: ["authors", id],
+        queryKey: ["author", id],
         queryFn: () => getAuthor(id),
     });
     return { data, isLoading };
