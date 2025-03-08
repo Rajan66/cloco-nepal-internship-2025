@@ -36,7 +36,7 @@ class Address(AbstractModel):
 
 
 class Author(AbstractModel):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name="author", on_delete=models.CASCADE)
     bio = models.TextField()
 
     def __str__(self):

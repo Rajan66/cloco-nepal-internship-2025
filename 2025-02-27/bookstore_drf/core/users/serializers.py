@@ -73,15 +73,20 @@ class AddressSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class AuthorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Author
-        fields = "__all__"
-
-
 class UserSerializer(serializers.ModelSerializer):
     # password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
         fields = ["id", "username", "first_name", "last_name", "email", "is_active"]
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    user_id = serializers.PrimaryKeyRelatedField(
+        source="user", write_only=True, queryset=User.objects.all()
+    )
+
+    class Meta:
+        model = Author
+        fields = "__all__"
