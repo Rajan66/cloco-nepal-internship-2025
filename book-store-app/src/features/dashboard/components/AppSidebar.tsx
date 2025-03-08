@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import logo from "@/app/favicon.ico";
-import { Button } from "../ui/button";
-import { items } from "../common/header/list/items";
+import { Button } from "@/components/ui/button";
+import { items } from "@/config/navbar";
 import Link from "next/link";
 import { LogOutIcon } from "lucide-react";
 

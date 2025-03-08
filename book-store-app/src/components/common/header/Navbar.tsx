@@ -1,7 +1,7 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import React from "react";
 import ThemeToggle from "../ThemeToggle";
-import DropdownProfile from "../../dashboard/DropdownProfile";
+import DropdownProfile from "@/features/dashboard/components/DropdownProfile";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { Separator } from "@/components/ui/separator";
 

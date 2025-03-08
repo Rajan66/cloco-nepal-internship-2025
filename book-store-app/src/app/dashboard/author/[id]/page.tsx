@@ -1,12 +1,16 @@
 import React from "react";
 
-import EditFormAuthor from "@/components/dashboard/author/EditFormAuthor";
-import NewPage from "@/components/dashboard/NewPage";
+import EditFormAuthor from "@/features/author/components/EditFormAuthor";
+import { NewPage } from "@/features/dashboard/components";
 
 const page = () => {
-    return (
-        <NewPage Form={EditFormAuthor} url="/dashboard/author" title="Update Author" />
-    );
+  return (
+    <NewPage
+      Form={EditFormAuthor}
+      url="/dashboard/author"
+      title="Update Author"
+    />
+  );
 };
 
 export default page;

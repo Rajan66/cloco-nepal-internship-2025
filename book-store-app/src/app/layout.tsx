@@ -3,8 +3,8 @@ import type { Metadata } from "next"; // built-in import 1st
 import { Poppins, Geist_Mono } from "next/font/google";
 import { ToastContainer } from "react-toastify"; // third-party import 2nd
 
-import { ThemeProvider } from "@/components/providers/ThemeProvider"; // custom import 3rd 
-import QueryProvider from "@/components/providers/QueryProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider"; // custom import 3rd 
+import QueryProvider from "@/providers/QueryProvider";
 
 import "./globals.css"; // css import last
 

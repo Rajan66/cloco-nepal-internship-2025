@@ -1,10 +1,12 @@
 import React from "react";
 
-import EditFormBook from "@/components/dashboard/book/EditFormBook";
-import NewPage from "@/components/dashboard/NewPage";
+import EditFormBook from "@/features/book/components/EditFormBook";
+import { NewPage } from "@/features/dashboard/components";
 
 const page = () => {
-    return <NewPage Form={EditFormBook} url="/dashboard/book" title="Update Book" />;
+  return (
+    <NewPage Form={EditFormBook} url="/dashboard/book" title="Update Book" />
+  );
 };
 
 export default page;

@@ -7,7 +7,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar } from "../ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 
 type TUser = {
     name: string | null | undefined;
