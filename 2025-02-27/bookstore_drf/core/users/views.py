@@ -2,6 +2,7 @@ from django.contrib.auth.models import User, update_last_login
 from django.http import Http404
 from rest_framework import status
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -40,10 +41,8 @@ class UserRegistrationView(APIView):
         serializer.save()
         user = serializer.instance
 
-        token, created = Token.objects.get_or_create(user=user)
         message = {
             "status": status.HTTP_201_CREATED,
-            "token": str(token.key),
             "user_id": user.id,
             "email": user.email,
         }
@@ -51,6 +50,8 @@ class UserRegistrationView(APIView):
 
 
 class UserList(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         users = User.objects.all()
         if not users.exists():

@@ -63,6 +63,7 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "core.utils.pagination.StandardPagination",
+    "DEFAULT_AUTHENTICATION_CLASSES": ("usersv2.helpers.JWTAuthentication",),
     "PAGE_SIZE": 10,
     "EXCEPTION_HANDLER": "core.utils.exception.custom_exception_handler",
     "NON_FIELD_ERRORS_KEY": "errors",
