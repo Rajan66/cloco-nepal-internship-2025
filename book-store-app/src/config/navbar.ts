@@ -17,8 +17,8 @@ export const items = [
     icon: UserPen,
   },
   {
-    title: "Customers",
-    url: "/dashboard/customer",
+    title: "Users",
+    url: "/dashboard/user",
     icon: User2,
   },
 ];
